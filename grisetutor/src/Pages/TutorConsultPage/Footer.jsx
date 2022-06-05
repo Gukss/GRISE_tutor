@@ -5,21 +5,19 @@ import Comment from "./Comment";
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
 import axios from 'axios';
 
-const Footer = ({ consultId, tuteeName, consultStart }) => {
+const Footer = ({ consultId, tuteeName, consultStart, consultType }) => {
   const ItemRef = useRef(null);
   const [content, setContent] = useState("");
   const [commentList, setCommentList] = useState([]);
-  // const [tuteeName, setTuteeName] = useState("");
   const inputEl = useRef(null);
   const commentCountRef = useRef(3);
   const currentCommentRef = useRef(0);
 
-	useEffect(() => {
-		inputEl.current.disabled = false;
-		inputEl.current.focus();
-		inputEl.current.placeholder = `피드백을 입력해주세요. ${commentCountRef.current}회 입력 가능합니다.`;
-		
-	}, [consultStart])
+  useEffect(() => {
+    inputEl.current.disabled = false;
+    inputEl.current.focus();
+    inputEl.current.placeholder = `피드백을 입력해주세요. ${commentCountRef.current}회 입력 가능합니다.`;
+  }, [consultStart]);
 
   useEffect(() => {
     axios({
@@ -37,19 +35,26 @@ const Footer = ({ consultId, tuteeName, consultStart }) => {
       .catch((error) => {
         console.log(error);
       });
-			// inputEl.current.disabled = true;
+		if (consultType === "NormalConsult"){
+			inputEl.current.disabled = true;
       inputEl.current.placeholder = `피드백 하기 버튼을 눌러주세요.`;
-
+		}else if (consultType === "RequestConsult") {
+			inputEl.current.disabled = true;
+      inputEl.current.placeholder = `피드백 하기 버튼을 눌러주세요.`;
+    } else if (consultType === "consulting") {
+			inputEl.current.disabled = false;
+      // inputEl.current.placeholder = `피드백 하기 버튼을 눌러주세요.`;
+    }
+		
   }, []);
 
   useEffect(() => {
     if (commentList.length !== 0) {
       ItemRef.current.scrollIntoView({ behavior: "smooth" });
       currentCommentRef.current = 0;
-      let localUsername = window.localStorage.getItem("username");
+      let localUserId = window.localStorage.getItem("userId");
       commentList.map((el) => {
-        //id로 바꿔야 한다.
-        if (el.userName === localUsername) {
+        if (el.userId === localUserId) {
           currentCommentRef.current += 1;
         }
       });

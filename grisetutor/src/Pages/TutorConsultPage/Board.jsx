@@ -79,6 +79,7 @@ const Board = () => {
         tuteeName={consult?.tutee?.name}
         // tutorName={location.state.tutor.name}
         consultStart={consultStart}
+				consultType={location.state.consult}
       />
     </Wrap>
   );

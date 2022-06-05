@@ -46,28 +46,33 @@ export const NavBar = () => {
   },[]);
   return (
     <div>
-      <GlobalStyle/>
+      <GlobalStyle />
       <div
         style={{
           borderBottom: "#e3e3e3 solid 1px",
           width: "97%",
           height: "3.5rem",
           margin: "0 auto",
-					display: "flex",
-					alignItems: "center",
+          display: "flex",
+          alignItems: "center",
         }}
       >
-        <div style={{
-					width: "100%",
-					height: "50%",
-					padding: "auto 0"
-				}}>
-          <Link to="/">
-						<Logo style={{
-              width: "4rem",
-  						height: "100%",
-  						float: "left",
-  						marginLeft: "0.5rem"}}/>
+        <div
+          style={{
+            width: "100%",
+            height: "50%",
+            padding: "auto 0",
+          }}
+        >
+          <Link to="/tutorMain">
+            <Logo
+              style={{
+                width: "4rem",
+                height: "100%",
+                float: "left",
+                marginLeft: "0.5rem",
+              }}
+            />
           </Link>
           <Menu
             style={{
@@ -76,9 +81,14 @@ export const NavBar = () => {
               float: "right",
             }}
             onClick={onClickMenu}
+          ></Menu>
+          <Drawer
+            width="100%"
+            title={userName}
+            placement="right"
+            onClose={onClose}
+            visible={MenuVisible}
           >
-          </Menu>
-          <Drawer width='100%' title={userName} placement="right" onClose={onClose} visible={MenuVisible}>
             <SideBarItem>
               <Link
                 to="/"
@@ -177,7 +187,7 @@ export const NavBar = () => {
             onClick={onClickSearch}
           ></Search>
           <Input
-            ref = {searchRef}
+            ref={searchRef}
             type="text"
             onChange={(e) => {
               searchText.current = e.target.value;
