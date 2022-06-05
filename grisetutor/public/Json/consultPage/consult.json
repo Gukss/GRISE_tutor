@@ -1,0 +1,47 @@
+{
+	"consult":{
+		"consultId":1,
+		"title":"제목1",
+		"content":"Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It htype specimen book. It htype specimen book. It htype specimen book. It htype specimen book. It htype specimen book. It h",
+		"tutee":{
+			"name":"튜티이름1"
+		},
+		"tutor":{
+			"name":"튜터이름1"
+		},
+		"video":{
+			"name":"video.name",
+			"data": "0101010101101010"
+		},
+		"commentList":[
+			{
+				"comment":{
+					"commentId":1,
+					"content":"댓글내용1",
+					"userName":"튜티이름1"
+				}
+			},
+			{
+				"comment":{
+					"commentId":2,
+					"content":"댓글내용2",
+					"userName":"튜터이름1"
+				}
+			},
+			{
+				"comment":{
+					"commentId":3,
+					"content":"댓글내용3",
+					"userName":"튜티이름1"
+				}
+			},
+			{
+				"comment":{
+					"commentId":4,
+					"content":"댓글내용4",
+					"userName":"튜터이름1"
+				}
+			}
+		]
+	}
+}
