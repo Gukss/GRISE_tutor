@@ -94,6 +94,7 @@ const HeaderBtn = styled.span`
   font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: bold;
+	font-size: 0.7rem;
 `;
 
 export default Header;
