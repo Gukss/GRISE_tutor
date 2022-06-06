@@ -23,7 +23,7 @@ const routes = [
   {
     path: "/RedirectTutor",
     component: RedirectTutorPage,
-  },
+  }
 ];
 
 export default routes;
