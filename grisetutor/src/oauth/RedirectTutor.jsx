@@ -39,16 +39,16 @@ const RedirectTutor = (props) => {
             },
           })
             .then((res) => {
-              console.log("튜티 등록성공");
-              // navigate("/tuteeMain");
-              window.location.href = "http://localhost:3000/tutorMain";
+              console.log("튜터 등록성공");
+              navigate("/tutorMain");
+              //window.location.href = "http://localhost:3000/tutorMain";
             })
             .catch((error) => alert("등록 Error가 발생하였습니다", error));
         } else {
           //튜티일때
           console.log("등록된 유저입니다.");
-          // navigate("/tuteeMain");
-          window.location.href = "http://localhost:3000/tutorMain";
+          navigate("/tuteeMain");
+          //window.location.href = "http://localhost:3000/tutorMain";
         }
       })
       .catch((error) => alert("Error가 발생하였습니다", error));
