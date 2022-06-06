@@ -17,7 +17,7 @@ const RedirectTutor = (props) => {
   const GoogleApiPOST = (token) => {
     axios({
       method: "GET",
-      url: `http://grise.p-e.kr/api/v1/users`,
+      url: `https://grise.p-e.kr/api/v1/users`,
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ const RedirectTutor = (props) => {
           //게스트일때 post로 등록
           axios({
             method: "POST",
-            url: `http://grise.p-e.kr/tutor/register`,
+            url: `https://grise.p-e.kr/tutor/register`,
             headers: {
               Authorization: `Bearer ${token}`,
               "Content-Type": "application/json",
@@ -41,14 +41,14 @@ const RedirectTutor = (props) => {
             .then((res) => {
               console.log("튜터 등록성공");
               navigate("/tutorMain");
-              //window.location.href = "http://localhost:3000/tutorMain";
+              //window.location.href = "https://localhost:3000/tutorMain";
             })
             .catch((error) => alert("등록 Error가 발생하였습니다", error));
         } else {
           //튜티일때
           console.log("등록된 유저입니다.");
           navigate("/tuteeMain");
-          //window.location.href = "http://localhost:3000/tutorMain";
+          //window.location.href = "https://localhost:3000/tutorMain";
         }
       })
       .catch((error) => alert("Error가 발생하였습니다", error));

@@ -26,7 +26,7 @@ const RequestConsultItem = (props) => {
       RejectBtnRef.current.style.backgroundColor="#B1B1B1";
       axios({
         method:'POST',
-        url:`http://grise.p-e.kr/tutor/consults/${props.data?.consultId}/cancel`,
+        url:`https://grise.p-e.kr/tutor/consults/${props.data?.consultId}/cancel`,
         headers: {
           Authorization: window.localStorage.getItem('token') ,
           "Content-Type": "application/json",
