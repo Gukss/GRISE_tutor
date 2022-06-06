@@ -63,7 +63,7 @@ const Board = () => {
 	return (
     <Wrap>
       <NavBar />
-      <Video />
+      <Video videoId={consult?.video.videoId} />
       <StyledTitle>
         <StyledHeader>{consult?.title}</StyledHeader>
         <CompleteButton onClick={onClick} ref={typeRef}>
@@ -76,7 +76,7 @@ const Board = () => {
         tuteeName={consult?.tutee?.name}
         // tutorName={location.state.tutor.name}
         consultStart={consultStart}
-				consultType={location.state.consult}
+        consultType={location.state.consult}
       />
     </Wrap>
   );
