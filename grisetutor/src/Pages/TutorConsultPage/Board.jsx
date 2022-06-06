@@ -5,6 +5,7 @@ import NavBar from '../NavBar'
 import Title from "./Title";
 import MainText from "./MainText";
 import Footer from "./Footer";
+import Video from "./Video";
 import axios from 'axios';
 
 const Board = () => {
@@ -62,11 +63,7 @@ const Board = () => {
 	return (
     <Wrap>
       <NavBar />
-      <StyledVideo>
-        <video controls style={{ width: "100%", height: "100%" }}>
-          <source ref={videoRef} type="video/mp4"></source>
-        </video>
-      </StyledVideo>
+      <Video />
       <StyledTitle>
         <StyledHeader>{consult?.title}</StyledHeader>
         <CompleteButton onClick={onClick} ref={typeRef}>

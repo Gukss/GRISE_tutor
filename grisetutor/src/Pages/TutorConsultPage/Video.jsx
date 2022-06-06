@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from 'styled-components'
 
 const Video = (props) => {
   const videoRef = useRef(null);
   async function VideoInit(){
-    const result = await fetch(`https://grise.p-e.kr/tutee/video/${props.videoId}`, {
+    const result = await fetch(`https://grise.p-e.kr/tutor/video/${props.videoId}`, {
       headers: {
         Authorization: window.localStorage.getItem('token')
       }
