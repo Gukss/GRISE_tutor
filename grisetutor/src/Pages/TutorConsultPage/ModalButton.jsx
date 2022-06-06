@@ -17,7 +17,7 @@ const ModalButton = ({ consultId, consultType }) => {
   const handleOk = () => {
 		axios({
       method: "POST",
-      url: `http://grise.p-e.kr/tutee/consults/${consultId}/done`,
+      url: `https://grise.p-e.kr/tutee/consults/${consultId}/done`,
       headers: {
         Authorization: window.localStorage.getItem("token"),
         "Content-Type": "application/json"
@@ -27,7 +27,7 @@ const ModalButton = ({ consultId, consultType }) => {
 				console.log("별점", rate.current)
 				axios
           .post(
-            `http://grise.p-e.kr/tutee/consults/${consultId}/review`,
+            `https://grise.p-e.kr/tutee/consults/${consultId}/review`,
             {},
             {
               headers: {

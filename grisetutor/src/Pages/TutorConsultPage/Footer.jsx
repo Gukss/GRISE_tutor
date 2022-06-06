@@ -24,7 +24,7 @@ const Footer = ({ consultId, tuteeName, consultStart }) => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `http://grise.p-e.kr/tutor/consults/${consultId}/comments`,
+      url: `https://grise.p-e.kr/tutor/consults/${consultId}/comments`,
       headers: {
         Authorization: window.localStorage.getItem("token"),
         "Content-Type": "application/json",
@@ -117,7 +117,7 @@ const Footer = ({ consultId, tuteeName, consultStart }) => {
     }
     axios
       .post(
-        `http://grise.p-e.kr/tutee/consults/${consultId}/comment`,
+        `https://grise.p-e.kr/tutee/consults/${consultId}/comment`,
         {
           content: content,
         },
@@ -131,7 +131,7 @@ const Footer = ({ consultId, tuteeName, consultStart }) => {
       .then((res) => {
         axios({
           method: "GET",
-          url: `http://grise.p-e.kr/tutee/consults/${consultId}/comments`,
+          url: `https://grise.p-e.kr/tutee/consults/${consultId}/comments`,
           headers: {
             Authorization: window.localStorage.getItem("token"),
             "Content-Type": "application/json",

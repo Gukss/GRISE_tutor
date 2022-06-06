@@ -26,7 +26,7 @@ const ConsultList = (props) => {
 
       axios({
         method:'GET',
-        url:`http://grise.p-e.kr/tutor/consults/general`,
+        url:`https://grise.p-e.kr/tutor/consults/general`,
         headers: {
           Authorization: window.localStorage.getItem('token') ,
           "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const ConsultList = (props) => {
       
       axios({
         method:'GET',
-        url:`http://grise.p-e.kr/tutor/consults/post`,
+        url:`https://grise.p-e.kr/tutor/consults/post`,
         headers: {
           Authorization: window.localStorage.getItem('token') ,
           "Content-Type": "application/json",
@@ -72,7 +72,7 @@ const ConsultList = (props) => {
       
       axios({
         method:'GET',
-        url:`http://grise.p-e.kr/tutor/consults/consulting`,
+        url:`https://grise.p-e.kr/tutor/consults/consulting`,
         headers: {
           Authorization: window.localStorage.getItem('token') ,
           "Content-Type": "application/json",
@@ -104,7 +104,7 @@ const ConsultList = (props) => {
       
       axios({
         method:'GET',
-        url:`http://grise.p-e.kr/tutor/consults/general`,
+        url:`https://grise.p-e.kr/tutor/consults/general`,
         headers: {
           Authorization: window.localStorage.getItem('token') ,
           "Content-Type": "application/json",
@@ -131,7 +131,7 @@ const ConsultList = (props) => {
       
       axios({
         method:'GET',
-        url:`http://grise.p-e.kr/tutor/consults/post`,
+        url:`https://grise.p-e.kr/tutor/consults/post`,
         headers: {
           Authorization: window.localStorage.getItem('token') ,
           "Content-Type": "application/json",
@@ -157,7 +157,7 @@ const ConsultList = (props) => {
       
       axios({
         method:'GET',
-        url:`http://grise.p-e.kr/tutor/consults/consulting`,
+        url:`https://grise.p-e.kr/tutor/consults/consulting`,
         headers: {
           Authorization: window.localStorage.getItem('token') ,
           "Content-Type": "application/json",

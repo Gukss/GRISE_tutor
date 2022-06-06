@@ -16,7 +16,7 @@ const Board = () => {
 	const onClick = () => {
 		axios({
       method: "POST",
-      url: `http://grise.p-e.kr/tutor/consults/${location.state.consultId}/startConsult`,
+      url: `https://grise.p-e.kr/tutor/consults/${location.state.consultId}/startConsult`,
       headers: {
         Authorization: window.localStorage.getItem("token"),
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const Board = () => {
 	useEffect(() => {
 		axios({
       method: "GET",
-      url: `http://grise.p-e.kr/tutor/consults/${location.state.consultId}`,
+      url: `https://grise.p-e.kr/tutor/consults/${location.state.consultId}`,
       headers: {
         Authorization: window.localStorage.getItem("token"),
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ const Board = () => {
       .then((res) => {
 				setConsult(res.data);
         console.log("df", res.data);
-				videoRef.current.src = `http://grise.p-e.kr/tutor/video/${res.data.video.videoId}`;
+				videoRef.current.src = `https://grise.p-e.kr/tutor/video/${res.data.video.videoId}`;
 				consultType();
       })
       .catch((error) => console.log(error));
