@@ -41,6 +41,30 @@ const Board = () => {
 			typeRef.current.style.display = "none";
 		};
 	};
+
+  async function VideoInit(videoId) {
+    console.log("비디오 시작 test");
+    const result = await fetch(`https://grise.p-e.kr/tutor/video/${videoId}`, {
+      headers: {
+        Authorization: window.localStorage.getItem("token"),
+      },
+    });
+
+    const blob = await result.blob();
+    console.log(result);
+
+    if (blob) {
+      videoRef.current.src = URL.createObjectURL(blob);
+
+      // Load the new resource
+      videoRef.current.parentElement.load();
+
+      console.info("Ready!", videoRef.current.src);
+    } else {
+      console.warn("Can not load");
+    }
+  }
+
 	useEffect(() => {
 		axios({
       method: "GET",
@@ -53,7 +77,7 @@ const Board = () => {
       .then((res) => {
 				setConsult(res.data);
         console.log("df", res.data);
-				videoRef.current.src = `https://grise.p-e.kr/tutor/video/${res.data.video.videoId}`;
+				VideoInit(res.data.video.videoId);
 				consultType();
       })
       .catch((error) => console.log(error));
