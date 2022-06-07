@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import axios from 'axios';
 
 const Board = () => {
+	const [type, setType] = useState();
   const location = useLocation();
 	const [consult, setConsult] = useState({});
 	const videoRef = useRef(null);
@@ -33,13 +34,13 @@ const Board = () => {
 	const typeRef = useRef();
 
 	const consultType = () => {
-		if (location.state.consult === "NormalConsult"){
-			typeRef.innerHTML = "피드백 하기";
-		} else if (location.state.consult === "RequestConsult") {
-			typeRef.current = "피드백 하기";
-    } else if (location.state.consult === "consulting"){
-			typeRef.current.style.display = "none";
-		};
+		if (type === "NormalConsult") {
+      typeRef.innerHTML = "피드백 하기";
+    } else if (type === "RequestConsult") {
+      typeRef.current = "피드백 하기";
+    } else if (type === "consulting") {
+      typeRef.current.style.display = "none";
+    };
 	};
 	useEffect(() => {
 		axios({
@@ -53,6 +54,7 @@ const Board = () => {
       .then((res) => {
 				setConsult(res.data);
 				videoRef.current.src=`https://grise.p-e.kr/video/${res.data.video.videoId}`;
+				setType(location.state.consult);
 				consultType();
       })
       .catch((error) => console.log(error));
@@ -76,7 +78,6 @@ const Board = () => {
       <Footer
         consultId={location.state.consultId}
         tuteeName={consult?.tutee?.name}
-        // tutorName={location.state.tutor.name}
         consultStart={consultStart}
         consultType={location.state.consult}
       />
