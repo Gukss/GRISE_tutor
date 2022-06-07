@@ -6,23 +6,12 @@ const ConsultingItem = (props) => {
   const navigate = useNavigate();
   const onClickShowConsultBtn = () =>{
     console.log(props.data?.consultId,'피드백 확인');
-		axios({
-      method: "GET",
-      url: `https://grise.p-e.kr/tutor/consults/${props.data?.consultId}`,
-      headers: {
-        Authorization: window.localStorage.getItem("token"),
-        "Content-Type": "application/json",
+		navigate("/tutorConsult", {
+      state: {
+        consult: props.consult,
+        consultId: props.data?.consultId,
       },
-    })
-      .then((res) => {
-        navigate("/tutorConsult", {
-          state: {
-            consult: props.consult,
-            data: res.data,
-          },
-        });
-      })
-      .catch((error) => console.log(error));
+    });
   }
   return (
     <Container onClick={onClickShowConsultBtn}>

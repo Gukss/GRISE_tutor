@@ -45,22 +45,21 @@ const Board = () => {
   //   };
 	// };
 	useEffect(() => {
-		setConsult(location.state.data);
-		// axios({
-    //   method: "GET",
-    //   url: `https://grise.p-e.kr/tutor/consults/${location.state.consultId}`,
-    //   headers: {
-    //     Authorization: window.localStorage.getItem("token"),
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((res) => {
-		// 		setConsult(res.data);
-		// 		// videoRef.current.src=`https://grise.p-e.kr/video/${res.data.video.videoId}`;
-		// 		// setType(location.state.consult);
-		// 		// consultType();
-    //   })
-    //   .catch((error) => console.log(error));
+		axios({
+      method: "GET",
+      url: `https://grise.p-e.kr/tutor/consults/${location.state.consultId}`,
+      headers: {
+        Authorization: window.localStorage.getItem("token"),
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+				setConsult(res.data);
+				videoRef.current.src=`https://grise.p-e.kr/video/${res.data.video.videoId}`;
+				// setType(location.state.consult);
+				// consultType();
+      })
+      .catch((error) => console.log(error));
 	}, []);
 
 	return (
@@ -68,12 +67,10 @@ const Board = () => {
       <NavBar />
       <StyledVideo>
         <video
-          src={`https://grise.p-e.kr/video/${location.state.data.video.videoId}`}
+          ref={videoRef}
           controls
-          style={{ width: "100%", height: "100%" }}
-        >
-          {/* <source ref={videoRef} type="video/mp4"></source> */}
-        </video>
+          style={{ width: "auto", height: "20rem" }}
+        />
       </StyledVideo>
       <StyledTitle>
         <StyledHeader>{consult?.title}</StyledHeader>
@@ -93,7 +90,7 @@ const Board = () => {
 };
 
 const CompleteButton = styled.button`
-  width: 4rem;
+  width: 5rem;
   height: 1.5rem;
   font-size: 0.4rem;
   border-radius: 10px;
@@ -129,7 +126,7 @@ const StyledHeader = styled.div`
 const StyledVideo = styled.div`
   width: 97%;
   margin: 0.5rem auto;
-  height: 25%;
+  text-align: center;
 `;
 
 const Wrap = styled.div`
