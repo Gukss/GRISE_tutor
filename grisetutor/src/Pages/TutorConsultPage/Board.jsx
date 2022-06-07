@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import axios from 'axios';
 
 const Board = () => {
-	const [type, setType] = useState();
+	// const [type, setType] = useState();
   const location = useLocation();
 	const [consult, setConsult] = useState({});
 	const videoRef = useRef(null);
@@ -24,7 +24,8 @@ const Board = () => {
     })
       .then((res) => {
         console.log("피드백 시작 테스트", res);
-				consultType();
+	      typeRef.current.style.display = "none";
+				// consultType();
       })
       .catch((error) => {
         console.log(error);
@@ -33,15 +34,15 @@ const Board = () => {
 	};
 	const typeRef = useRef();
 
-	const consultType = () => {
-		if (type === "NormalConsult") {
-      typeRef.innerHTML = "피드백 하기";
-    } else if (type === "RequestConsult") {
-      typeRef.current = "피드백 하기";
-    } else if (type === "consulting") {
-      typeRef.current.style.display = "none";
-    };
-	};
+	// const consultType = () => {
+	// 	if (type === "NormalConsult") {
+  //     typeRef.innerHTML = "피드백 하기";
+  //   } else if (type === "RequestConsult") {
+  //     typeRef.current = "피드백 하기";
+  //   } else if (type === "consulting") {
+  //     typeRef.current.style.display = "none";
+  //   };
+	// };
 	useEffect(() => {
 		axios({
       method: "GET",
@@ -54,8 +55,8 @@ const Board = () => {
       .then((res) => {
 				setConsult(res.data);
 				videoRef.current.src=`https://grise.p-e.kr/video/${res.data.video.videoId}`;
-				setType(location.state.consult);
-				consultType();
+				// setType(location.state.consult);
+				// consultType();
       })
       .catch((error) => console.log(error));
 	}, []);
