@@ -52,7 +52,6 @@ const Board = () => {
     })
       .then((res) => {
 				setConsult(res.data);
-        console.log("df", res.data);
 				videoRef.current.src=`https://grise.p-e.kr/video/${res.data.video.videoId}`;
 				consultType();
       })
