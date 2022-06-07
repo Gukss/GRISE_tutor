@@ -1,18 +1,28 @@
 import React from 'react'
 import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
-
+import axios from 'axios';
 const ConsultingItem = (props) => {
   const navigate = useNavigate();
   const onClickShowConsultBtn = () =>{
     console.log(props.data?.consultId,'피드백 확인');
-
-    navigate("/tutorConsult", {
-      state: {
-        consult: props.consult,
-        consultId: props.data?.consultId,
+		axios({
+      method: "GET",
+      url: `https://grise.p-e.kr/tutor/consults/${props.data?.consultId}`,
+      headers: {
+        Authorization: window.localStorage.getItem("token"),
+        "Content-Type": "application/json",
       },
-    });
+    })
+      .then((res) => {
+        navigate("/tutorConsult", {
+          state: {
+            consult: props.consult,
+            data: res.data,
+          },
+        });
+      })
+      .catch((error) => console.log(error));
   }
   return (
     <Container onClick={onClickShowConsultBtn}>
