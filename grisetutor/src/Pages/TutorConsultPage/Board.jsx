@@ -25,6 +25,7 @@ const Board = () => {
       .then((res) => {
         console.log("피드백 시작 테스트", res);
 	      typeRef.current.style.display = "none";
+        console.log(typeRef.current);
 				// consultType();
       })
       .catch((error) => {
