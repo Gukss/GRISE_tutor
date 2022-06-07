@@ -14,6 +14,30 @@ const Board = () => {
 	const [consult, setConsult] = useState({});
 	const videoRef = useRef(null);
 	const [consultStart, setConsultStart] = useState(false);
+	
+	async function VideoInit(videoId) {
+    console.log("비디오 시작 test");
+    const result = await fetch(`https://grise.p-e.kr/tutee/video/${videoId}`, {
+      headers: {
+        Authorization: window.localStorage.getItem("token"),
+      },
+    });
+
+    const blob = await result.blob();
+    console.log(result);
+
+    if (blob) {
+      videoRef.current.src = URL.createObjectURL(blob);
+
+      // Load the new resource
+      videoRef.current.parentElement.load();
+
+      console.info("Ready!", videoRef.current.src);
+    } else {
+      console.warn("Can not load");
+    }
+  }
+
 	const onClick = () => {
 		axios({
       method: "POST",
@@ -54,7 +78,7 @@ const Board = () => {
       .then((res) => {
 				setConsult(res.data);
         console.log("df", res.data);
-				videoRef.current.src = `https://grise.p-e.kr/tutor/video/${res.data.video.videoId}`;
+				VideoInit(res.data.video.videoId);
 				consultType();
       })
       .catch((error) => console.log(error));
@@ -63,7 +87,11 @@ const Board = () => {
 	return (
     <Wrap>
       <NavBar />
-      <Video videoId={consult?.video.videoId} />
+      <StyledVideo>
+        <video controls style={{ width: "100%", height: "100%" }}>
+          <source ref={videoRef} type="video/mp4"></source>
+        </video>
+      </StyledVideo>
       <StyledTitle>
         <StyledHeader>{consult?.title}</StyledHeader>
         <CompleteButton onClick={onClick} ref={typeRef}>
