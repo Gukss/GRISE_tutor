@@ -135,7 +135,7 @@ const Footer = ({ consultId, tuteeName, consultStart, consultType }) => {
         axios({
           method: "GET",
           url: `https://grise.p-e.kr/tutor/consults/${consultId}/comments`,
-          headers: {
+          headers: { 
             Authorization: window.localStorage.getItem("token"),
             "Content-Type": "application/json",
           },
