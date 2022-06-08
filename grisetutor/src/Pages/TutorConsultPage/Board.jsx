@@ -13,7 +13,7 @@ const Board = () => {
 	const videoRef = useRef(null);
 	const [consultStart, setConsultStart] = useState(false);
 
-	const onClick = () => {
+	const onClickStart = () => {
 		axios({
       method: "POST",
       url: `https://grise.p-e.kr/tutor/consults/${location.state.consultId}/startConsult`,
@@ -25,7 +25,7 @@ const Board = () => {
       .then((res) => {
         console.log("피드백 시작 테스트", res);
 	      typeRef.current.style.display = "none";
-        console.log(typeRef.current);
+        alert('피드백을 시작합니다.');
 				// consultType();
       })
       .catch((error) => {
@@ -69,12 +69,13 @@ const Board = () => {
         <video
           ref={videoRef}
           controls
+          controlsList="nodownload"
           style={{maxWidth:'100%', width: 'auto', height: '15rem' }}
         />
       </StyledVideo>
       <StyledTitle>
         <StyledHeader>{consult?.title}</StyledHeader>
-        <CompleteButton onClick={onClick} ref={typeRef}>
+        <CompleteButton onClick={onClickStart} ref={typeRef}>
           피드백 하기
         </CompleteButton>
       </StyledTitle>
