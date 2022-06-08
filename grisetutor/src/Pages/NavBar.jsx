@@ -15,11 +15,6 @@ export const NavBar = () => {
   const searchText = useRef('');
   const searchRef = useRef();
   const [MenuVisible, setMenuVisible] = useState(false);
-  const [userName,setUserName] = useState('');
-
-  useEffect(()=>{
-    setUserName(window.localStorage.getItem("username"));
-  },[])
 
   const onClose = () => {
     setMenuVisible(false);
@@ -79,7 +74,7 @@ export const NavBar = () => {
             onClick={onClickMenu}
           >
           </Menu>
-          <Drawer width='100%' title={userName} placement="right" onClose={onClose} visible={MenuVisible}>
+          <Drawer width='100%' title={window.localStorage.getItem("username")} placement="right" onClose={onClose} visible={MenuVisible}>
             <SideBarItem>
               <Link
                 to="/"
