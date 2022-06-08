@@ -1,7 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react'
-import { Row, Col, Select, Divider } from "antd";
 import styled from "styled-components";
-import Comment from "./Comment";
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
 import axios from 'axios';
 
@@ -122,7 +120,7 @@ const Footer = ({ consultId, tuteeName, consultStart, consultType }) => {
     }
     axios
       .post(
-        `https://grise.p-e.kr/tutee/consults/${consultId}/comment`,
+        `https://grise.p-e.kr/tutor/consults/${consultId}/comment`,
         {
           content: content,
         },
@@ -136,7 +134,7 @@ const Footer = ({ consultId, tuteeName, consultStart, consultType }) => {
       .then((res) => {
         axios({
           method: "GET",
-          url: `https://grise.p-e.kr/tutee/consults/${consultId}/comments`,
+          url: `https://grise.p-e.kr/tutor/consults/${consultId}/comments`,
           headers: {
             Authorization: window.localStorage.getItem("token"),
             "Content-Type": "application/json",
