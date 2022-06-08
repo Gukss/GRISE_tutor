@@ -7,6 +7,7 @@ const RequestConsultItem = (props) => {
 		const navigate = useNavigate();
     const RejectBtnRef = useRef();
     const isReject = useRef(false);
+    const ContainerRef = useRef();
 
 		const onClickShowConsultBtn = () => {
       if(isReject.current){return;}//거절한 피드백일경우 확인안됨
@@ -42,8 +43,11 @@ const RequestConsultItem = (props) => {
       });
     }
     return (
-      <Container>
-        <Content onClick={onClickShowConsultBtn}>
+      <Container ref={ContainerRef}>
+        <Content 
+          onTouchStart={()=>{ContainerRef.current.style.borderColor='#3A6C7B';}}
+          onTouchEnd={()=>{ContainerRef.current.style.borderLeftColor='transparent';ContainerRef.current.style.borderRightColor='transparent';}}
+          onClick={onClickShowConsultBtn}>
           <Title>{props.data?.title}</Title>
           <Name>{props.data?.tutee.name}</Name>
         </Content>
@@ -57,7 +61,9 @@ const RequestConsultItem = (props) => {
 const Container = styled.div`
   height: 4.2rem;
   display: flex;
-  border-bottom: #3a6c7b solid 0.2rem;
+  border-left: transparent solid 0.2rem;
+  border-right: transparent solid 0.2rem;
+  border-bottom: #3A6C7B solid 0.2rem;
   font-family: "Noto Sans CJK KR";
   font-style: normal;
   font-weight: bold;
