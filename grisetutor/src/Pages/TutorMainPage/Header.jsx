@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect,useState } from "react";
 import styled from 'styled-components';
 import ConsultList from './List/ConsultList';
 
@@ -7,9 +7,12 @@ const Header = () => {
   const NormalConsultHeaderRef = useRef(null);
   const RequestConsultHeaderRef = useRef(null);
   const NormalConsultListRef = useRef(null);
+  const [LoadingNormalConsult,SetLoadingNormalConsult] = useState(false);
   const RequestConsultListRef = useRef(null);
+  const [LoadingRequestConsult,SetLoadingRequestConsult] = useState(false);
   const consultingHeaderRef = useRef(null);
   const consultingListRef = useRef(null);
+  const [LoadingConsulting,SetLoadingConsulting] = useState(false);
   useEffect(() => {
     onClickNormalConsultListBtn();
   }, []);
@@ -26,6 +29,8 @@ const Header = () => {
     consultingHeaderRef.current.style.borderBottom = "#b1b1b1 solid 0.2rem";
     consultingHeaderRef.current.style.color = "#b1b1b1";
     consultingListRef.current.style.display="none";
+
+    SetLoadingNormalConsult(true);
   };
 
   const onClickRequestHeaderBtn = () => {
@@ -40,6 +45,8 @@ const Header = () => {
     consultingHeaderRef.current.style.borderBottom = "#b1b1b1 solid 0.2rem";
     consultingHeaderRef.current.style.color = "#b1b1b1";
     consultingListRef.current.style.display="none";
+
+    SetLoadingRequestConsult(true);
   };
 
   const onClickConsultingBtn = () =>{
@@ -54,6 +61,8 @@ const Header = () => {
     consultingHeaderRef.current.style.borderBottom = "#3A6C7B solid 0.2rem";
     consultingHeaderRef.current.style.color = "#3A6C7B";
     consultingListRef.current.style.display="block";
+
+    SetLoadingConsulting(true);
   }
   return (
     <div>
@@ -72,13 +81,13 @@ const Header = () => {
         </HeaderBtn>
       </div>
 			<div ref={NormalConsultListRef}>
-      	<ConsultList consult = "NormalConsult"/>
+      	<ConsultList SetLoading={SetLoadingNormalConsult} Loading={LoadingNormalConsult} consult = "NormalConsult"/>
 			</div>
 			<div ref={RequestConsultListRef}>
-				<ConsultList consult = "RequestConsult" />
+				<ConsultList SetLoading={SetLoadingRequestConsult} Loading={LoadingRequestConsult} consult = "RequestConsult" />
 			</div>
       <div ref={consultingListRef}>
-        <ConsultList consult = "consulting"/>
+        <ConsultList SetLoading={SetLoadingConsulting} Loading={LoadingConsulting} consult = "consulting"/>
       </div>
     </div>
   );

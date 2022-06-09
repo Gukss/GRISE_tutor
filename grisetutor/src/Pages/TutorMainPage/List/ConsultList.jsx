@@ -17,7 +17,8 @@ const ConsultList = (props) => {
     RejectList.current = [...RejectList.current,idx];
   }
 
-  const GetConsult = useCallback(e=>{
+  const GetConsult = () => {
+    pageNumber.current=0;
     if(props.consult === 'NormalConsult'){
       // axios.get('Json/mainPageTutor/consultList.json')
       // .then((res) => {
@@ -87,7 +88,7 @@ const ConsultList = (props) => {
       }).catch((error) => console.log(error));
       
     }
-  },[props.consult,pageNumber,setConsultList])
+  }
 
   const Refresh = () => {
     pageNumber.current+=1;
@@ -178,9 +179,16 @@ const ConsultList = (props) => {
   
   useEffect(() => {
     GetConsult();
-  }, [GetConsult]);
+  }, []);
 
   useEffect(()=>{NoRefreshRef.current.style.display = 'none';},[ConsultList])
+
+  useEffect(()=>{
+    if(props.Loading){
+      GetConsult();
+      props.SetLoading(false);
+    }
+  },[props])
 
   const onTouchStart=(e)=>{
     setTouchPosition({ x: e.changedTouches[0].pageX, y: e.changedTouches[0].pageY });
