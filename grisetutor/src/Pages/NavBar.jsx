@@ -99,7 +99,7 @@ export const NavBar = () => {
             </SideBarItem>
             <SideBarItem>
               <Link
-                to="/"
+                to="/profile"
                 style={{
                   textDecoration: "none",
                   display: "flex",
@@ -116,7 +116,7 @@ export const NavBar = () => {
                     margin: "1rem 0",
                   }}
                 />
-                <Content>내 정보 수정</Content>
+                <Content>내 정보</Content>
               </Link>
             </SideBarItem>
             <SideBarItem>
