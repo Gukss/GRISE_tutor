@@ -146,7 +146,7 @@ const ConsultList = (props) => {
   useEffect(()=>{noRefreshRef.current.style.display = 'none';},[consultList])
 
   useEffect(()=>{
-    if(props.Loading){
+    if(props.loading){
       GetConsult();
       props.SetLoading(false);
     }

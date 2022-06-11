@@ -81,13 +81,13 @@ const Header = () => {
         </HeaderBtn>
       </div>
 			<div ref={normalConsultListRef}>
-      	<ConsultList SetLoading={SetLoadingNormalConsult} Loading={loadingNormalConsult} consult = "NormalConsult"/>
+      	<ConsultList SetLoading={SetLoadingNormalConsult} loading={loadingNormalConsult} consult = "NormalConsult"/>
 			</div>
 			<div ref={requestConsultListRef}>
-				<ConsultList SetLoading={SetLoadingRequestConsult} Loading={loadingRequestConsult} consult = "RequestConsult" />
+				<ConsultList SetLoading={SetLoadingRequestConsult} loading={loadingRequestConsult} consult = "RequestConsult" />
 			</div>
       <div ref={consultingListRef}>
-        <ConsultList SetLoading={SetLoadingConsulting} Loading={loadingConsulting} consult = "consulting"/>
+        <ConsultList SetLoading={SetLoadingConsulting} loading={loadingConsulting} consult = "consulting"/>
       </div>
     </div>
   );
