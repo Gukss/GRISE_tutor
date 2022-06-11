@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
 
 const ConsultingItem = (props) => {
-  const navigate = useNavigate();
-  const ContainerRef = useRef();
-  const onClickShowConsultBtn = () =>{
+  const Navigate = useNavigate();
+  const containerRef = useRef();
+  const ShowConsult = () =>{
     console.log(props.data?.consultId,'피드백 확인');
-		navigate("/tutorConsult", {
+		Navigate("/tutorConsult", {
       state: {
         consult: props.consult,
         consultId: props.data?.consultId,
@@ -16,10 +16,10 @@ const ConsultingItem = (props) => {
   }
   return (
     <Container
-      onTouchStart={()=>{ContainerRef.current.style.borderColor='#3A6C7B';}}
-      onTouchEnd={()=>{ContainerRef.current.style.borderLeftColor='transparent';ContainerRef.current.style.borderRightColor='transparent';}}
-      onClick={onClickShowConsultBtn}
-      ref={ContainerRef}
+      onTouchStart={()=>{containerRef.current.style.borderColor='#3A6C7B';}}
+      onTouchEnd={()=>{containerRef.current.style.borderLeftColor='transparent';containerRef.current.style.borderRightColor='transparent';}}
+      onClick={ShowConsult}
+      ref={containerRef}
     >
       <TitleDiv>
         <Title>{props.data?.title}</Title>

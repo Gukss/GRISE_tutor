@@ -2,18 +2,17 @@ import React, {useState, useEffect, useRef} from 'react'
 import { useLocation } from "react-router-dom";
 import styled from 'styled-components'
 import NavBar from '../NavBar'
-import MainText from "./MainText";
-import Footer from "./Footer";
+import Comment from "./Comment";
 import axios from 'axios';
 
 const Board = () => {
   const location = useLocation();
-	const [consult, setConsult] = useState({});
+	const [consult, SetConsult] = useState({});
 	const videoRef = useRef(null);
-	const [consultStart, setConsultStart] = useState(false);
+	const [consultStart, SetConsultStart] = useState(false);
   const typeRef = useRef();
 
-	const onClickStart = () => {
+	const ClickStart = () => {
 		axios({
       method: "POST",
       url: `https://grise.p-e.kr/tutor/consults/${location.state.consultId}/startConsult`,
@@ -29,7 +28,7 @@ const Board = () => {
       .catch((error) => {
         console.log(error);
       });
-		setConsultStart(true);
+		SetConsultStart(true);
 	};
 
 	useEffect(() => {
@@ -45,7 +44,7 @@ const Board = () => {
       },
     })
       .then((res) => {
-				setConsult(res.data);
+				SetConsult(res.data);
 				videoRef.current.src=`https://grise.p-e.kr/video/${res.data.video.videoId}`;
       })
       .catch((error) => console.log(error));
@@ -59,17 +58,17 @@ const Board = () => {
           ref={videoRef}
           controls
           controlsList="nodownload"
-          style={{maxWidth:'100%', width: 'auto', height: '15rem' }}
+          style={{ maxWidth: "100%", width: "auto", height: "15rem" }}
         />
       </StyledVideo>
       <StyledTitle>
         <StyledHeader>{consult?.title}</StyledHeader>
-        <CompleteButton onClick={onClickStart} ref={typeRef}>
+        <CompleteButton onClick={ClickStart} ref={typeRef}>
           피드백 하기
         </CompleteButton>
       </StyledTitle>
-      <MainText content={consult?.content} />
-      <Footer
+      <StyledMainText>{consult?.content}</StyledMainText>
+      <Comment
         consultId={location.state.consultId}
         tuteeName={consult?.tutee?.name}
         consultStart={consultStart}
@@ -78,6 +77,18 @@ const Board = () => {
     </Wrap>
   );
 };
+
+const StyledMainText = styled.div`
+  width: 97%;
+  height: 3rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  background-color: #fff;
+`;
 
 const CompleteButton = styled.button`
   width: 5rem;

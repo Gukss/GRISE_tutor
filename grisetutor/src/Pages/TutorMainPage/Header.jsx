@@ -4,27 +4,27 @@ import ConsultList from './List/ConsultList';
 
 
 const Header = () => {
-  const NormalConsultHeaderRef = useRef(null);
-  const RequestConsultHeaderRef = useRef(null);
-  const NormalConsultListRef = useRef(null);
-  const [LoadingNormalConsult,SetLoadingNormalConsult] = useState(false);
-  const RequestConsultListRef = useRef(null);
-  const [LoadingRequestConsult,SetLoadingRequestConsult] = useState(false);
+  const normalConsultHeaderRef = useRef(null);
+  const requestConsultHeaderRef = useRef(null);
+  const normalConsultListRef = useRef(null);
+  const [loadingNormalConsult,SetLoadingNormalConsult] = useState(false);
+  const requestConsultListRef = useRef(null);
+  const [loadingRequestConsult,SetLoadingRequestConsult] = useState(false);
   const consultingHeaderRef = useRef(null);
   const consultingListRef = useRef(null);
-  const [LoadingConsulting,SetLoadingConsulting] = useState(false);
+  const [loadingConsulting,SetLoadingConsulting] = useState(false);
   useEffect(() => {
-    onClickNormalConsultListBtn();
+    ShowNormalConsultList();
   }, []);
 
-  const onClickNormalConsultListBtn = () => {
-    NormalConsultHeaderRef.current.style.borderBottom = "#3A6C7B solid 0.2rem";
-    NormalConsultHeaderRef.current.style.color = "#3A6C7B";
-    NormalConsultListRef.current.style.display="block";
+  const ShowNormalConsultList = () => {
+    normalConsultHeaderRef.current.style.borderBottom = "#3A6C7B solid 0.2rem";
+    normalConsultHeaderRef.current.style.color = "#3A6C7B";
+    normalConsultListRef.current.style.display="block";
 
-    RequestConsultHeaderRef.current.style.borderBottom = "#b1b1b1 solid 0.2rem";
-    RequestConsultHeaderRef.current.style.color = "#b1b1b1";
-    RequestConsultListRef.current.style.display="none";
+    requestConsultHeaderRef.current.style.borderBottom = "#b1b1b1 solid 0.2rem";
+    requestConsultHeaderRef.current.style.color = "#b1b1b1";
+    requestConsultListRef.current.style.display="none";
 
     consultingHeaderRef.current.style.borderBottom = "#b1b1b1 solid 0.2rem";
     consultingHeaderRef.current.style.color = "#b1b1b1";
@@ -33,14 +33,14 @@ const Header = () => {
     SetLoadingNormalConsult(true);
   };
 
-  const onClickRequestHeaderBtn = () => {
-    NormalConsultHeaderRef.current.style.borderBottom = "#b1b1b1 solid 0.2rem";
-    NormalConsultHeaderRef.current.style.color = "#b1b1b1";
-    NormalConsultListRef.current.style.display="none";
+  const ShowRequestConsultList = () => {
+    normalConsultHeaderRef.current.style.borderBottom = "#b1b1b1 solid 0.2rem";
+    normalConsultHeaderRef.current.style.color = "#b1b1b1";
+    normalConsultListRef.current.style.display="none";
 
-    RequestConsultHeaderRef.current.style.borderBottom = "#3A6C7B solid 0.2rem";
-    RequestConsultHeaderRef.current.style.color = "#3A6C7B";
-    RequestConsultListRef.current.style.display="block";
+    requestConsultHeaderRef.current.style.borderBottom = "#3A6C7B solid 0.2rem";
+    requestConsultHeaderRef.current.style.color = "#3A6C7B";
+    requestConsultListRef.current.style.display="block";
 
     consultingHeaderRef.current.style.borderBottom = "#b1b1b1 solid 0.2rem";
     consultingHeaderRef.current.style.color = "#b1b1b1";
@@ -49,14 +49,14 @@ const Header = () => {
     SetLoadingRequestConsult(true);
   };
 
-  const onClickConsultingBtn = () =>{
-    NormalConsultHeaderRef.current.style.borderBottom = "#b1b1b1 solid 0.2rem";
-    NormalConsultHeaderRef.current.style.color = "#b1b1b1";
-    NormalConsultListRef.current.style.display="none";
+  const ShowConsultingList = () =>{
+    normalConsultHeaderRef.current.style.borderBottom = "#b1b1b1 solid 0.2rem";
+    normalConsultHeaderRef.current.style.color = "#b1b1b1";
+    normalConsultListRef.current.style.display="none";
 
-    RequestConsultHeaderRef.current.style.borderBottom = "#b1b1b1 solid 0.2rem";
-    RequestConsultHeaderRef.current.style.color = "#b1b1b1";
-    RequestConsultListRef.current.style.display="none";
+    requestConsultHeaderRef.current.style.borderBottom = "#b1b1b1 solid 0.2rem";
+    requestConsultHeaderRef.current.style.color = "#b1b1b1";
+    requestConsultListRef.current.style.display="none";
 
     consultingHeaderRef.current.style.borderBottom = "#3A6C7B solid 0.2rem";
     consultingHeaderRef.current.style.color = "#3A6C7B";
@@ -67,27 +67,27 @@ const Header = () => {
   return (
     <div>
       <div style={{ display: "flex",width:"95%",margin: "0 auto" }}>
-        <HeaderBtn ref={NormalConsultHeaderRef} onClick={onClickNormalConsultListBtn}>
+        <HeaderBtn ref={normalConsultHeaderRef} onClick={ShowNormalConsultList}>
           일반 피드백
         </HeaderBtn>
         <HeaderBtn
-          ref={RequestConsultHeaderRef}
-          onClick={onClickRequestHeaderBtn}
+          ref={requestConsultHeaderRef}
+          onClick={ShowRequestConsultList}
         >
           요청받은 피드백
         </HeaderBtn>
-        <HeaderBtn ref={consultingHeaderRef} onClick={onClickConsultingBtn}>
+        <HeaderBtn ref={consultingHeaderRef} onClick={ShowConsultingList}>
           진행중인 피드백
         </HeaderBtn>
       </div>
-			<div ref={NormalConsultListRef}>
-      	<ConsultList SetLoading={SetLoadingNormalConsult} Loading={LoadingNormalConsult} consult = "NormalConsult"/>
+			<div ref={normalConsultListRef}>
+      	<ConsultList SetLoading={SetLoadingNormalConsult} Loading={loadingNormalConsult} consult = "NormalConsult"/>
 			</div>
-			<div ref={RequestConsultListRef}>
-				<ConsultList SetLoading={SetLoadingRequestConsult} Loading={LoadingRequestConsult} consult = "RequestConsult" />
+			<div ref={requestConsultListRef}>
+				<ConsultList SetLoading={SetLoadingRequestConsult} Loading={loadingRequestConsult} consult = "RequestConsult" />
 			</div>
       <div ref={consultingListRef}>
-        <ConsultList SetLoading={SetLoadingConsulting} Loading={LoadingConsulting} consult = "consulting"/>
+        <ConsultList SetLoading={SetLoadingConsulting} Loading={loadingConsulting} consult = "consulting"/>
       </div>
     </div>
   );

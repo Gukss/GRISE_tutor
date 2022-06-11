@@ -4,14 +4,14 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 const RequestConsultItem = (props) => {
-		const navigate = useNavigate();
-    const RejectBtnRef = useRef();
+		const Navigate = useNavigate();
+    const rejectBtnRef = useRef();
     const isReject = useRef(false);
-    const ContainerRef = useRef();
+    const containerRef = useRef();
 
-		const onClickShowConsultBtn = () => {
+		const ShowConsult = () => {
       if(isReject.current){return;}//거절한 피드백일경우 확인안됨
-      navigate("/tutorConsult", {
+      Navigate("/tutorConsult", {
         state: {
           consult: props.consult,
           consultId: props.data?.consultId,
@@ -19,12 +19,12 @@ const RequestConsultItem = (props) => {
       });
     };
 
-    const onClickRejectBtn = () =>{
+    const RejectConsult = () =>{
       if(isReject.current){
         alert('거절한 요청입니다');
         return;
       }
-      RejectBtnRef.current.style.backgroundColor="#B1B1B1";
+      rejectBtnRef.current.style.backgroundColor="#B1B1B1";
       axios({
         method:'POST',
         url:`https://grise.p-e.kr/tutor/consults/${props.data?.consultId}/cancel`,
@@ -38,20 +38,20 @@ const RequestConsultItem = (props) => {
         props.PushReject(props.index);
         isReject.current=true;
       }).catch((error) => {
-        RejectBtnRef.current.style.backgroundColor="#3a6c7b";
+        rejectBtnRef.current.style.backgroundColor="#3a6c7b";
         console.log(error);
       });
     }
     return (
-      <Container ref={ContainerRef}>
+      <Container ref={containerRef}>
         <Content 
-          onTouchStart={()=>{ContainerRef.current.style.borderColor='#3A6C7B';}}
-          onTouchEnd={()=>{ContainerRef.current.style.borderLeftColor='transparent';ContainerRef.current.style.borderRightColor='transparent';}}
-          onClick={onClickShowConsultBtn}>
+          onTouchStart={()=>{containerRef.current.style.borderColor='#3A6C7B';}}
+          onTouchEnd={()=>{containerRef.current.style.borderLeftColor='transparent';containerRef.current.style.borderRightColor='transparent';}}
+          onClick={ShowConsult}>
           <Title>{props.data?.title}</Title>
           <Name>{props.data?.tutee.name}</Name>
         </Content>
-        <RejectBtn ref={RejectBtnRef} onClick={onClickRejectBtn}>
+        <RejectBtn ref={rejectBtnRef} onClick={RejectConsult}>
           거절
         </RejectBtn>
       </Container>

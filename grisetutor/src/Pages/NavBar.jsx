@@ -2,7 +2,6 @@ import React,{useState,useRef,useEffect} from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import { Drawer } from 'antd';
-import { ReactComponent as Search} from '../Image/search.svg';
 import { ReactComponent as Menu} from '../Image/Menu.svg';
 import { ReactComponent as Logo} from '../Image/GRISE_logo.svg';
 import {AiOutlineHome,AiOutlineLogout} from 'react-icons/ai';
@@ -12,34 +11,20 @@ import GlobalStyle from '../styles/globalStyle/GlobalStyle';
 import "antd/dist/antd.min.css";
 
 export const NavBar = () => {
-  const searchText = useRef('');
-  const searchRef = useRef();
-  const [MenuVisible, setMenuVisible] = useState(false);
+  const [drawerVisible, SetDrawerVisible] = useState(false);
 
-  const onClose = () => {
-    setMenuVisible(false);
+  const CloseDrawer = () => {
+    SetDrawerVisible(false);
   };
 
-  const onClickMenu = () =>{
-    setMenuVisible(true);
-  }
-  const onClickSearch = () =>{
-    if(searchRef.current.style.display === 'none'){ //현재 검색창이 비활성화되어있을때
-      searchRef.current.style.display='block'; //검색창을 보이게함
-    }else if(searchText.current === ""){//검색창이 보이는상태이면서 텍스트가 아무것도 없으면 숨기기
-      searchRef.current.style.display='none';
-    }else{//검색
-      console.log(searchText.current);
-    }
+  const ShowDrawer = () =>{
+    SetDrawerVisible(true);
   }
 
-  const onClickLogOut = () =>{
+  const Logout = () =>{
     //https://velog.io/@bluejoyq/reactOAuth2.0-%EC%97%94%EB%93%9C%ED%8F%AC%EC%9D%B8%ED%8A%B8%EB%A1%9C-%EC%A7%81%EC%A0%91-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0
   }
-  useEffect(()=>{
-    searchRef.current.style.display = 'none';
-		// console.log(window.location.host, "패쓰확인");
-  },[]);
+
   return (
     <div>
       <GlobalStyle/>
@@ -71,10 +56,10 @@ export const NavBar = () => {
               height: "2rem",
               float: "right",
             }}
-            onClick={onClickMenu}
+            onClick={ShowDrawer}
           >
           </Menu>
-          <Drawer width='100%' title={window.localStorage.getItem("username")} placement="right" onClose={onClose} visible={MenuVisible}>
+          <Drawer width='100%' title={window.localStorage.getItem("username")} placement="right" CloseDrawer={CloseDrawer} visible={drawerVisible}>
             <SideBarItem>
               <Link
                 to="/"
@@ -141,7 +126,7 @@ export const NavBar = () => {
                 <Content>도움말</Content>
               </Link>
             </SideBarItem>
-            <SideBarItem onClick={onClickLogOut}>
+            <SideBarItem onClick={Logout}>
               <Link
                 to="/"
                 style={{
@@ -164,32 +149,11 @@ export const NavBar = () => {
               </Link>
             </SideBarItem>
           </Drawer>
-          <Search
-            style={{
-              width: "2rem",
-              height: "2rem",
-              float: "right",
-            }}
-            onClick={onClickSearch}
-          ></Search>
-          <Input
-            ref = {searchRef}
-            type="text"
-            onChange={(e) => {
-              searchText.current = e.target.value;
-            }}
-          />
         </div>
       </div>
     </div>
   );
 }
-
-const Input = styled.input`
-  width:10rem;
-  height:2rem;
-  float:right;
-`
 
 const Content = styled.div`
   float: left;

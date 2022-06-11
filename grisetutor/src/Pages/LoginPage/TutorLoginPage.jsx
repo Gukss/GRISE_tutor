@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import {ReactComponent as TutorLogo} from '../../Image/TutorLogo.svg';
 import { GoogleLoginButton } from "react-social-login-buttons";
 export const TutorLoginPage = () => {
-  const RedirectURL = `https://grise.p-e.kr/oauth2/authorization/google?redirect_uri=${window.location.origin}/RedirectTutor`;
+  const redirectURL = `https://grise.p-e.kr/oauth2/authorization/google?redirect_uri=${window.location.origin}/RedirectTutor`;
   return (
     <Wrap>
       <TutorLogo style={{ width: "100%", height: "100%" }}></TutorLogo>
       <a
-        href={RedirectURL}
+        href={redirectURL}
         style={{ display: "flex", justifyContent: "center" }}
       >
         <div style={{ width: "60%" }}>

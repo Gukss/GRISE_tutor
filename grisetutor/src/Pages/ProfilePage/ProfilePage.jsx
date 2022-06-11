@@ -4,8 +4,8 @@ import NavBar from '../NavBar';
 import axios from 'axios';
 
 const ProfilePage = ()=>{
-  const [Profile,SetProfile] = useState('');
-  const SubmitingRef = useRef(null);
+  const [profile,SetProfile] = useState('');
+  const submitingRef = useRef(null);
 
   useEffect(()=>{
     axios({
@@ -22,14 +22,14 @@ const ProfilePage = ()=>{
     .catch((error) => console.log(error));
   },[]);
 
-  const onChangeProfile = useCallback((e)=>{
+  const ChangeProfile = useCallback((e)=>{
     SetProfile(e.target.value);
   },[]);
   
-  const onClickSubmmitBtn = (e)=>{
-    SubmitingRef.current.style.display='block';
+  const SubmmitProfile = (e)=>{
+    submitingRef.current.style.display='block';
     axios.put(`https://grise.p-e.kr/tutor/resume`,{
-      content:Profile
+      content:profile
     },{
       headers: {
         Authorization: window.localStorage.getItem("token"),
@@ -37,14 +37,14 @@ const ProfilePage = ()=>{
       }
     }).then((res) => {
       console.log(res);
-      SubmitingRef.current.style.display='none';
+      submitingRef.current.style.display='none';
     })
     .catch((error) => console.log(error));
   }
 
   return (
     <Wrap>
-      <SubmitingDiv ref={SubmitingRef}>
+      <SubmitingDiv ref={submitingRef}>
         수정중입니다
       </SubmitingDiv>
       <NavBar />
@@ -52,8 +52,8 @@ const ProfilePage = ()=>{
         <ProfileTitle>프로필</ProfileTitle>
         <ProfileWarring>튜티에게 보여줄 정보를 입력해 주세요</ProfileWarring>
       </ProfileTitleContainer>
-      <ProfileInput onChange={onChangeProfile} value={Profile} id="Profile" name="Profile" type="Text" placeholder="피드백 받고싶은 내용을 입력해 주세요"></ProfileInput>
-      <SubmmitButton onClick={onClickSubmmitBtn}>수정</SubmmitButton>
+      <ProfileInput onChange={ChangeProfile} value={profile} id="profile" name="profile" type="Text" placeholder="피드백 받고싶은 내용을 입력해 주세요"></ProfileInput>
+      <SubmmitButton onClick={SubmmitProfile}>수정</SubmmitButton>
     </Wrap>
   );
 }
