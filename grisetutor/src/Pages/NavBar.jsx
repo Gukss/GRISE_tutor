@@ -62,7 +62,7 @@ export const NavBar = () => {
             onClick={ShowDrawer}
           >
           </Menu>
-          <Drawer width='100%' title={window.localStorage.getItem("username")} placement="right" CloseDrawer={CloseDrawer} visible={drawerVisible}>
+          <Drawer width='100%' title={window.localStorage.getItem("username")} placement="right" onClose={CloseDrawer} visible={drawerVisible}>
             <SideBarItem>
               <Link
                 to="/"
