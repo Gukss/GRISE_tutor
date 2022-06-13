@@ -4,10 +4,9 @@ import routes from "./routes";
 
 function App() {
   useEffect(()=>{
-    const loginURL = `${window.location.origin}/tuteeLogin`;
-    const redirectURL = `${window.location.origin}/RedirectTutee`
+    const loginURL = `${window.location.origin}`;
     const currentURL = window.location.href;
-    if(currentURL === window.location.origin||currentURL.includes(loginURL) || currentURL.includes(redirectURL)){return;}
+    if(currentURL === loginURL||currentURL.includes('tutorLogin') || currentURL.includes('RedirectTutor')){return;}
     if(window.localStorage.getItem('token')===''){
       window.location.href=loginURL;
       alert('비정상적인 접근입니다. 로그인해주세요!');
