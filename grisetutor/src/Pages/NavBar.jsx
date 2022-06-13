@@ -22,6 +22,9 @@ export const NavBar = () => {
   }
 
   const Logout = () =>{
+    window.localStorage.setItem('userId', '');
+    window.localStorage.setItem('userName', '');
+    window.localStorage.setItem('token', '');
     //https://velog.io/@bluejoyq/reactOAuth2.0-%EC%97%94%EB%93%9C%ED%8F%AC%EC%9D%B8%ED%8A%B8%EB%A1%9C-%EC%A7%81%EC%A0%91-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0
   }
 

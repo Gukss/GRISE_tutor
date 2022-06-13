@@ -35,13 +35,13 @@ const RedirectTutor = (props) => {
             })
               .then((res) => {
                 console.log("튜터 등록성공");
-                Navigate("/tutorMain");
+                Navigate("/tutorMain",{replace:true});
               })
               .catch((error) => alert("등록 Error가 발생하였습니다", error));
           } else {
             //튜티일때
             console.log("등록된 유저입니다.");
-            Navigate("/tutorMain");
+            Navigate("/tutorMain",{replace:true});
           }
         })
         .catch((error) => alert("Error가 발생하였습니다", error));
