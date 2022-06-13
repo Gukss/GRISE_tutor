@@ -8,7 +8,7 @@ const RedirectTutor = (props) => {
     const current = decodeURI(window.location.href);
     const search = current.split("?")[1];
     const params = new URLSearchParams(search);
-    const keywords = params.get("keywords");
+    const keywords = params.get("token");
     if (keywords !== null) {
       axios({
         method: "GET",
