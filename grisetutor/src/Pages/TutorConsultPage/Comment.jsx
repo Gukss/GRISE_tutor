@@ -22,7 +22,7 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
       method: "GET",
       url: `https://grise.p-e.kr/tutor/consults/${consultId}/comments`,
       headers: {
-        Authorization: window.localStorage.GetItem("token"),
+        Authorization: window.localStorage.getItem("token"),
         "Content-Type": "application/json",
       },
     })
@@ -49,7 +49,7 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
     if (commentList.length !== 0) {
       itemRef.current.scrollIntoView({ behavior: "smooth" });
       currentCommentRef.current = 0;
-      let localUserId = window.localStorage.GetItem("userId");
+      let localUserId = window.localStorage.getItem("userId");
       commentList.map((el) => {
         if (el.userId === localUserId) {
           currentCommentRef.current += 1;
@@ -125,7 +125,7 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
         },
         {
           headers: {
-            Authorization: window.localStorage.GetItem("token"),
+            Authorization: window.localStorage.getItem("token"),
             "Content-Type": `application/json`,
           },
         }
@@ -135,7 +135,7 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
           method: "GET",
           url: `https://grise.p-e.kr/tutor/consults/${consultId}/comments`,
           headers: {
-            Authorization: window.localStorage.GetItem("token"),
+            Authorization: window.localStorage.getItem("token"),
             "Content-Type": "application/json",
           },
         })
