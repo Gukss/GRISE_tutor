@@ -3,6 +3,7 @@ import TutorConsultBoard from "./Pages/TutorConsultPage/Board";
 import TutorLoginPage from "./Pages/LoginPage/TutorLoginPage";
 import RedirectTutorPage from './oauth/RedirectTutor';
 import ProfilePage from './Pages/ProfilePage/ProfilePage'
+import LoadingPage from "./Pages/LoadingPage";
 const routes = [
   {
     path: "/",
@@ -27,7 +28,11 @@ const routes = [
   {
     path: "/profile",
     component: ProfilePage,
-  }
+  },
+  {
+    path: "/test",
+    component: LoadingPage,
+  },
 ];
 
 export default routes;

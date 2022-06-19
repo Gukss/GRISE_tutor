@@ -2,8 +2,11 @@ import React, {useState, useEffect, useRef} from 'react'
 import { useLocation } from "react-router-dom";
 import styled from 'styled-components'
 import NavBar from '../NavBar'
+import LoadingPage from "../LoadingPage";
 import Comment from "./Comment";
 import axios from 'axios';
+import { Spin } from "antd";
+
 
 const Board = () => {
   const location = useLocation();
@@ -11,6 +14,7 @@ const Board = () => {
 	const videoRef = useRef(null);
 	const [consultStart, SetConsultStart] = useState(false);
   const typeRef = useRef();
+	const loadingRef = useRef(null);
 
 	const ClickStart = () => {
 		axios({
@@ -46,12 +50,18 @@ const Board = () => {
       .then((res) => {
 				SetConsult(res.data);
 				videoRef.current.src=`https://grise.p-e.kr/video/${res.data.video.videoId}`;
+				// loadingRef.current.style.display = "none";
       })
-      .catch((error) => console.log(error));
+			.then((res) => {
+				loadingRef.current.style.display = "none";
+			})
+      .catch((error) => console.log(error))
 	}, []);
 
 	return (
-    <Wrap>
+		<Wrap>
+			<Loading ref={loadingRef}>로딩중입니다</Loading>
+      {/* <LoadingPage ref={loadingRef}> */}
       <NavBar />
       <StyledVideo>
         <video
@@ -74,9 +84,30 @@ const Board = () => {
         consultStart={consultStart}
         consultType={location.state.consult}
       />
+      {/* </LoadingPage> */}
     </Wrap>
   );
 };
+
+const Loading = styled.div`
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: "Noto Sans CJK KR";
+  font-style: normal;
+  font-weight: bold;
+  color: #fff;
+  font-size: 3rem;
+  text-align: center;
+  line-height: 80vh;
+  background-color: rgba(0, 0, 0, 0.8);
+`;
 
 const StyledMainText = styled.div`
   width: 97%;
