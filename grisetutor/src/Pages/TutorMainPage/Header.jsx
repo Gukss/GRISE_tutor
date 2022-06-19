@@ -68,16 +68,16 @@ const Header = () => {
     <div>
       <div style={{ display: "flex",width:"95%",margin: "0 auto" }}>
         <HeaderBtn ref={normalConsultHeaderRef} onClick={ShowNormalConsultList}>
-          일반 피드백
+          일반 상담
         </HeaderBtn>
         <HeaderBtn
           ref={requestConsultHeaderRef}
           onClick={ShowRequestConsultList}
         >
-          요청받은 피드백
+          요청받은 상담
         </HeaderBtn>
         <HeaderBtn ref={consultingHeaderRef} onClick={ShowConsultingList}>
-          진행중인 피드백
+          진행중인 상담
         </HeaderBtn>
       </div>
 			<div ref={normalConsultListRef}>

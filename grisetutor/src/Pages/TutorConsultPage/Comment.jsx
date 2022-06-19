@@ -14,7 +14,7 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
   useEffect(() => {
     inputRef.current.disabled = false;
     inputRef.current.focus();
-    inputRef.current.placeholder = `피드백을 입력해주세요. ${commentCountRef.current}회 입력 가능합니다.`;
+    inputRef.current.placeholder = `답변을 입력해주세요. ${commentCountRef.current}회 입력 가능합니다.`;
   }, [consultStart]);
 
   useEffect(() => {
@@ -35,13 +35,13 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
       });
     if (consultType === "NormalConsult") {
       inputRef.current.disabled = true;
-      inputRef.current.placeholder = `피드백 하기 버튼을 눌러주세요.`;
+      inputRef.current.placeholder = `상담 하기 버튼을 눌러주세요.`;
     } else if (consultType === "RequestConsult") {
       inputRef.current.disabled = true;
-      inputRef.current.placeholder = `피드백 하기 버튼을 눌러주세요.`;
+      inputRef.current.placeholder = `상담 하기 버튼을 눌러주세요.`;
     } else if (consultType === "consulting") {
       inputRef.current.disabled = false;
-      // inputRef.current.placeholder = `피드백 하기 버튼을 눌러주세요.`;
+      // inputRef.current.placeholder = `상담 하기 버튼을 눌러주세요.`;
     }
   }, []);
 
@@ -56,7 +56,7 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
         }
       });
       commentCountRef.current = 3 - currentCommentRef.current;
-      inputRef.current.placeholder = `피드백을 입력해주세요. ${commentCountRef.current}회 입력 가능합니다.`;
+      inputRef.current.placeholder = `답변을 입력해주세요. ${commentCountRef.current}회 입력 가능합니다.`;
       if (commentCountRef.current === 0) {
         inputRef.current.placeholder = `입력횟수를 모두 사용하셨습니다.`;
       }
@@ -162,7 +162,7 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
             GetComment(e);
           }}
           type="text"
-          placeholder="피드백을 입력해주세요. 3회 입력 가능합니다."
+          placeholder="답변을 입력해주세요. 3회 입력 가능합니다."
           value={content}
           ref={inputRef}
         ></InputComment>

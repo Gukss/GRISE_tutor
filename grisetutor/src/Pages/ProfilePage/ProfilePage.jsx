@@ -52,7 +52,7 @@ const ProfilePage = ()=>{
         <ProfileTitle>프로필</ProfileTitle>
         <ProfileWarring>튜티에게 보여줄 정보를 입력해 주세요</ProfileWarring>
       </ProfileTitleContainer>
-      <ProfileInput onChange={ChangeProfile} value={profile} id="profile" name="profile" type="Text" placeholder="피드백 받고싶은 내용을 입력해 주세요"></ProfileInput>
+      <ProfileInput onChange={ChangeProfile} value={profile} id="profile" name="profile" type="Text" placeholder="상담 받고싶은 내용을 입력해 주세요"></ProfileInput>
       <SubmmitButton onClick={SubmmitProfile}>수정</SubmmitButton>
     </Wrap>
   );

@@ -27,7 +27,7 @@ const Board = () => {
     })
       .then((res) => {
 	      typeRef.current.style.display = "none";
-        alert('피드백을 시작합니다.');
+        alert('상담을 시작합니다.');
       })
       .catch((error) => {
         console.log(error);
@@ -74,7 +74,7 @@ const Board = () => {
       <StyledTitle>
         <StyledHeader>{consult?.title}</StyledHeader>
         <CompleteButton onClick={ClickStart} ref={typeRef}>
-          피드백 하기
+          상담 하기
         </CompleteButton>
       </StyledTitle>
       <StyledMainText>{consult?.content}</StyledMainText>

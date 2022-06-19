@@ -6,7 +6,7 @@ const ConsultingItem = (props) => {
   const Navigate = useNavigate();
   const containerRef = useRef();
   const ShowConsult = () =>{
-    console.log(props.data?.consultId,'피드백 확인');
+    // console.log(props.data?.consultId,'상담 확인');
 		Navigate("/tutorConsult", {
       state: {
         consult: props.consult,
