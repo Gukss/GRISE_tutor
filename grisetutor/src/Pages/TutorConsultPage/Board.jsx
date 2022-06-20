@@ -26,13 +26,15 @@ const Board = () => {
       },
     })
       .then((res) => {
-	      typeRef.current.style.display = "none";
-        alert('상담을 시작합니다.');
+        typeRef.current.style.display = "none";
+         alert("상담을 시작합니다.");
+      })
+      .then((res) => {
+				SetConsultStart(true);
       })
       .catch((error) => {
         console.log(error);
       });
-		SetConsultStart(true);
 	};
 
 	useEffect(() => {
