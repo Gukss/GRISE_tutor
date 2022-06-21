@@ -2,11 +2,12 @@ import React,{useEffect,useRef,useState,useCallback} from "react";
 import styled from 'styled-components';
 import NavBar from '../NavBar';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = ()=>{
   const [profile,SetProfile] = useState('');
   const submitingRef = useRef(null);
-
+  const Navigate = useNavigate();
   useEffect(()=>{
     axios({
       method: "GET",
@@ -38,6 +39,8 @@ const ProfilePage = ()=>{
     }).then((res) => {
       console.log(res);
       submitingRef.current.style.display='none';
+      Navigate("/tutorMain");
+
     })
     .catch((error) => console.log(error));
   }
