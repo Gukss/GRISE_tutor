@@ -1,7 +1,5 @@
 # GRISE_TUTOR_README
 
-# 🗒️Contents
-
 # 🖊️Description
 
 ## 🕶️name
@@ -21,9 +19,9 @@ GRISE
 grisetutor
 ├── public
 │   ├── Json
-│		│		├── consultPage
-│		│		├── mainPageTutor
-│		│		└── **consultForm.json**
+│	  │	  ├── consultPage
+│	  │	  ├── mainPageTutor
+│   │	  └── **consultForm.json**
 │   └── Videos
 │   
 └── src
@@ -200,7 +198,7 @@ create table review (
 
 **일반 상담 목록**
 
-```json
+```
 [POST] /tutor/consults/general
 ```
 
@@ -339,7 +337,7 @@ body에 아무것도 없이 요청한다.
 
 **상담 달기**
 
-```json
+```
 [POST]/tutor/consults/{consultId}/comment
 ```
 
