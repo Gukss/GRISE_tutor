@@ -5,7 +5,7 @@
 	- [name](#name)
 	- [introduce](#introduce)
 	- [directory](#directory)
-- [ℹ️Information](#ℹ️information)
+- [Information](#information)
 	- [System Architecture](#system-architecture)
 	- [Class Diagram](#class-diagram)
 	- [Sequence Diagram](#sequence-diagram)
@@ -69,7 +69,7 @@ grisetutor
 
 ---
 
-# ℹ️Information
+# Information
 
 ## System Architecture
 
