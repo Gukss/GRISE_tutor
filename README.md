@@ -43,11 +43,11 @@ grisetutor
 
 # ℹ️Information
 
-## 🔗[System Architecture](https://www.notion.so/GRISE_TUTOR_README-2ca1f67003b942e4869c427ced621fb3)
+## 🔗[System Architecture](#grisetutorreadme)
 
 ![https://user-images.githubusercontent.com/77517470/179341021-c4a8dbc2-f4c5-4698-aebc-4bd891dec18a.png](https://user-images.githubusercontent.com/77517470/179341021-c4a8dbc2-f4c5-4698-aebc-4bd891dec18a.png)
 
-## 🔗[Class Diagram](https://www.notion.so/GRISE_TUTOR_README-2ca1f67003b942e4869c427ced621fb3)
+## 🔗[Class Diagram](#grisetutorreadme)
 
 ![https://user-images.githubusercontent.com/76477531/179341531-761bc241-addf-4937-88ab-f8b77f8dfe9d.png](https://user-images.githubusercontent.com/76477531/179341531-761bc241-addf-4937-88ab-f8b77f8dfe9d.png)
 
@@ -61,7 +61,7 @@ grisetutor
 
 ![https://user-images.githubusercontent.com/76477531/179341598-315da284-b23e-4d2d-b77f-588416c79809.png](https://user-images.githubusercontent.com/76477531/179341598-315da284-b23e-4d2d-b77f-588416c79809.png)
 
-## 🔗[Sequence Diagram](https://www.notion.so/GRISE_TUTOR_README-2ca1f67003b942e4869c427ced621fb3)
+## 🔗[Sequence Diagram](#grisetutorreadme)
 
 ****<!--**** img SequenceDiagram ****-->****
 
@@ -73,15 +73,15 @@ grisetutor
 
 ![https://user-images.githubusercontent.com/76477531/179341770-7c902ea2-98e0-40bb-8306-6a7a7192ac89.png](https://user-images.githubusercontent.com/76477531/179341770-7c902ea2-98e0-40bb-8306-6a7a7192ac89.png)
 
-## 🔗[Design](https://www.notion.so/GRISE_TUTOR_README-2ca1f67003b942e4869c427ced621fb3)
+## 🔗[Design](#grisetutorreadme)
 
 [https://www.figma.com/file/sgRoBucvp5cIUTGveaQPrc/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80?node-id=0%3A1](https://www.figma.com/file/sgRoBucvp5cIUTGveaQPrc/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80?node-id=0%3A1)
 
-## 🔗[E-R Diagram](https://www.notion.so/GRISE_TUTOR_README-2ca1f67003b942e4869c427ced621fb3)
+## 🔗[E-R Diagram](#grisetutorreadme)
 
 ![https://user-images.githubusercontent.com/76477531/179341790-bd346456-f62f-4920-98a2-faa8911ef65b.png](https://user-images.githubusercontent.com/76477531/179341790-bd346456-f62f-4920-98a2-faa8911ef65b.png)
 
-## 🔗[Schema](https://www.notion.so/GRISE_TUTOR_README-2ca1f67003b942e4869c427ced621fb3)
+## 🔗[Schema](#grisetutorreadme)
 
 ### User
 
@@ -192,7 +192,7 @@ create table review (
     )
 ```
 
-## 🔗[API and JSON](https://www.notion.so/GRISE_TUTOR_README-2ca1f67003b942e4869c427ced621fb3)
+## 🔗[API and JSON](#grisetutorreadme)
 
 ### 메인 페이지
 
