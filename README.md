@@ -43,7 +43,7 @@ grisetutor
 
 # ℹ️Information
 
-## 🔗[System Architecture](#grisetutorreadme)
+## 🔗[System Architecture](#🖊️description)
 
 ![https://user-images.githubusercontent.com/77517470/179341021-c4a8dbc2-f4c5-4698-aebc-4bd891dec18a.png](https://user-images.githubusercontent.com/77517470/179341021-c4a8dbc2-f4c5-4698-aebc-4bd891dec18a.png)
 
