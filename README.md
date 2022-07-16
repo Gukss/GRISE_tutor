@@ -5,21 +5,18 @@
   * [🎉introduce](#--introduce)
   * [🌱directory](#--directory)
 - [ℹ️Information](#--information)
-  * [🔗[System Architecture](#grisetutorreadme)](#---system-architecture---grisetutorreadme-)
-  * [🔗[Class Diagram](#grisetutorreadme)](#---class-diagram---grisetutorreadme-)
-  * [🔗[Sequence Diagram](#grisetutorreadme)](#---sequence-diagram---grisetutorreadme-)
-  * [🔗[Design](#grisetutorreadme)](#---design---grisetutorreadme-)
-  * [🔗[E-R Diagram](#grisetutorreadme)](#---e-r-diagram---grisetutorreadme-)
-  * [🔗[Schema](#grisetutorreadme)](#---schema---grisetutorreadme-)
+  * [🔗System Architecture](#--system-architecture)
+  * [🔗Class Diagram](#--class-diagram)
+  * [🔗Sequence Diagram](#--sequence-diagram)
+  * [🔗Design](#--design)
+  * [🔗E-R Diagram](#--e-r-diagram)
+  * [🔗Schema](#--schema)
     + [User](#user)
     + [Tutee](#tutee)
     + [Tutor](#tutor)
     + [Resume](#resume)
     + [Consult](#consult)
     + [Comment](#comment)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 # 🖊️Description
 
@@ -64,11 +61,11 @@ grisetutor
 
 # ℹ️Information
 
-## 🔗[System Architecture](#grisetutorreadme)
+## 🔗System Architecture
 
 ![https://user-images.githubusercontent.com/77517470/179341021-c4a8dbc2-f4c5-4698-aebc-4bd891dec18a.png](https://user-images.githubusercontent.com/77517470/179341021-c4a8dbc2-f4c5-4698-aebc-4bd891dec18a.png)
 
-## 🔗[Class Diagram](#grisetutorreadme)
+## 🔗Class Diagram
 
 ![https://user-images.githubusercontent.com/76477531/179341531-761bc241-addf-4937-88ab-f8b77f8dfe9d.png](https://user-images.githubusercontent.com/76477531/179341531-761bc241-addf-4937-88ab-f8b77f8dfe9d.png)
 
@@ -82,7 +79,7 @@ grisetutor
 
 ![https://user-images.githubusercontent.com/76477531/179341598-315da284-b23e-4d2d-b77f-588416c79809.png](https://user-images.githubusercontent.com/76477531/179341598-315da284-b23e-4d2d-b77f-588416c79809.png)
 
-## 🔗[Sequence Diagram](#grisetutorreadme)
+## 🔗Sequence Diagram
 
 ****<!--**** img SequenceDiagram ****-->****
 
@@ -94,15 +91,15 @@ grisetutor
 
 ![https://user-images.githubusercontent.com/76477531/179341770-7c902ea2-98e0-40bb-8306-6a7a7192ac89.png](https://user-images.githubusercontent.com/76477531/179341770-7c902ea2-98e0-40bb-8306-6a7a7192ac89.png)
 
-## 🔗[Design](#grisetutorreadme)
+## 🔗Design
 
 [https://www.figma.com/file/sgRoBucvp5cIUTGveaQPrc/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80?node-id=0%3A1](https://www.figma.com/file/sgRoBucvp5cIUTGveaQPrc/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80?node-id=0%3A1)
 
-## 🔗[E-R Diagram](#grisetutorreadme)
+## 🔗[E-R Diagram](https://www.notion.so/GRISE_TUTOR_README-2ca1f67003b942e4869c427ced621fb3)
 
 ![https://user-images.githubusercontent.com/76477531/179341790-bd346456-f62f-4920-98a2-faa8911ef65b.png](https://user-images.githubusercontent.com/76477531/179341790-bd346456-f62f-4920-98a2-faa8911ef65b.png)
 
-## 🔗[Schema](#grisetutorreadme)
+## 🔗Schema
 
 ### User
 
@@ -213,7 +210,7 @@ create table review (
     )
 ```
 
-## 🔗[API and JSON](#grisetutorreadme)
+## 🔗API and JSON
 
 ### 메인 페이지
 
