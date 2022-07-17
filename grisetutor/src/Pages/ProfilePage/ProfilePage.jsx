@@ -1,7 +1,7 @@
 import React,{useEffect,useRef,useState,useCallback} from "react";
 import styled from 'styled-components';
 import NavBar from '../NavBar';
-import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 const ProfilePage = ()=>{
@@ -9,18 +9,28 @@ const ProfilePage = ()=>{
   const submitingRef = useRef(null);
   const Navigate = useNavigate();
   useEffect(()=>{
-    axios({
-      method: "GET",
-      url: `https://grise.p-e.kr/tutor/resume`,
-      headers: {
-        Authorization: window.localStorage.getItem("token"),
-        "Content-Type": "application/json",
-      },
-    })
-    .then((res) => {
-      SetProfile(res.data.content);
-    })
-    .catch((error) => console.log(error));
+    // 유저프로필 가저오기 (서버닫혀서 주석처리)
+    // axios({
+    //   method: "GET",
+    //   url: `https://grise.p-e.kr/tutor/resume`,
+    //   headers: {
+    //     Authorization: window.localStorage.getItem("token"),
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+    // .then((res) => {
+    //   SetProfile(res.data.content);
+    // })
+    // .catch((error) => console.log(error));
+
+    //서버닫혔을때 로컬로 돌아가는 코드
+    const temp = window.localStorage.getItem("profile");
+    if(temp === null){
+      window.localStorage.setItem("profile",'프로필을 작성하지 않았습니다.');
+      SetProfile('프로필을 작성하지 않았습니다.');
+    }else{
+      SetProfile(window.localStorage.getItem("profile"));
+    }
   },[]);
 
   const ChangeProfile = useCallback((e)=>{
@@ -28,21 +38,27 @@ const ProfilePage = ()=>{
   },[]);
   
   const SubmmitProfile = (e)=>{
-    submitingRef.current.style.display='block';
-    axios.put(`https://grise.p-e.kr/tutor/resume`,{
-      content:profile
-    },{
-      headers: {
-        Authorization: window.localStorage.getItem("token"),
-        "Content-Type": "application/json",
-      }
-    }).then((res) => {
-      console.log(res);
-      submitingRef.current.style.display='none';
-      Navigate("/tutorMain");
+    // 유저프로필 수정 (서버닫혀서 주석처리)
+    // submitingRef.current.style.display='block';
+    // axios.put(`https://grise.p-e.kr/tutor/resume`,{
+    //   content:profile
+    // },{
+    //   headers: {
+    //     Authorization: window.localStorage.getItem("token"),
+    //     "Content-Type": "application/json",
+    //   }
+    // }).then((res) => {
+    //   console.log(res);
+    //   submitingRef.current.style.display='none';
+    //   Navigate("/tutorMain");
 
-    })
-    .catch((error) => console.log(error));
+    // })
+    // .catch((error) => console.log(error));
+    
+    //서버닫혔을때 로컬로 돌아가는 코드
+    window.localStorage.setItem("profile",profile);
+    submitingRef.current.style.display='none';
+    Navigate("/tutorMain");
   }
 
   return (

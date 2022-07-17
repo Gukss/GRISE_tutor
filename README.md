@@ -19,8 +19,8 @@ GRISE
 grisetutor
 ├── public
 │   ├── Json
-│	  │	  ├── consultPage
-│	  │	  ├── mainPageTutor
+│	│	  ├── consultPage
+│	│	  ├── mainPageTutor
 │   │	  └── **consultForm.json**
 │   └── Videos
 │   

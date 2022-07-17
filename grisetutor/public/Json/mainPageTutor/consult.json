@@ -1,0 +1,26 @@
+{
+  "consultId": 7,
+  "title": "어깨좀 봐주세요",
+  "content": "피드백본문3",
+  "tutee":{
+  "name": "김민영"
+  },
+  "tutor":{
+  "name": "김민영"
+  },
+  "video":{
+  "videoId": 7
+  },
+  "commentList":[
+    {
+      "commentId": 2,
+      "content": "~~이렇게 하면 됩니다",
+      "userName": "김민영"
+    },
+    {
+      "commentId": 3,
+      "content": "아 그럼 이렇게 하면되나요",
+      "userName": "김민영"
+    }
+  ]
+}

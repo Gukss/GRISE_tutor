@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import {ReactComponent as TutorLogo} from '../../Image/TutorLogo.svg';
 import { GoogleLoginButton } from "react-social-login-buttons";
 export const TutorLoginPage = () => {
-  const redirectURL = `https://grise.p-e.kr/oauth2/authorization/google?redirect_uri=${window.location.origin}/RedirectTutor`;
+  //const redirectURL = `https://grise.p-e.kr/oauth2/authorization/google?redirect_uri=${window.location.origin}/RedirectTutor`;//서버닫히기전 LoginURL
+  const mainURL = `http://grisetutor.netlify.com/tutorMain`;//오프라인시 메인URL로 이동
   return (
     <Wrap>
       <TutorLogo style={{ width: "100%", height: "100%" }}></TutorLogo>
       <a
-        href={redirectURL}
+        href={mainURL}
         style={{ display: "flex", justifyContent: "center" }}
       >
         <div style={{ width: "60%" }}>

@@ -2,10 +2,10 @@ import React, {useState, useEffect, useRef} from 'react'
 import { useLocation } from "react-router-dom";
 import styled from 'styled-components'
 import NavBar from '../NavBar'
-import LoadingPage from "../LoadingPage";
+// import LoadingPage from "../LoadingPage";
 import Comment from "./Comment";
-import axios from 'axios';
-import { Spin } from "antd";
+// import axios from 'axios';
+// import { Spin } from "antd";
 
 
 const Board = () => {
@@ -17,6 +17,7 @@ const Board = () => {
 	const loadingRef = useRef(null);
 
 	const ClickStart = () => {
+    /*
 		axios({
       method: "POST",
       url: `https://grise.p-e.kr/tutor/consults/${location.state.consultId}/startConsult`,
@@ -25,22 +26,27 @@ const Board = () => {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => {
-        typeRef.current.style.display = "none";
-         alert("상담을 시작합니다.");
-      })
-      .then((res) => {
-				SetConsultStart(true);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    .then((res) => {
+      typeRef.current.style.display = "none";
+      alert("상담을 시작합니다.");
+    })
+    .then((res) => {
+      SetConsultStart(true);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    */
+    typeRef.current.style.display = "none";
+    alert("상담을 시작합니다.");
+    SetConsultStart(true);
 	};
 
 	useEffect(() => {
     if (location.state.consult === "consulting"){
       typeRef.current.style.display = "none";
     }
+    /*
 		axios({
       method: "GET",
       url: `https://grise.p-e.kr/tutor/consults/${location.state.consultId}`,
@@ -49,15 +55,34 @@ const Board = () => {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => {
-				SetConsult(res.data);
-				videoRef.current.src=`https://grise.p-e.kr/video/${res.data.video.videoId}`;
-				// loadingRef.current.style.display = "none";
-      })
-			.then((res) => {
-				loadingRef.current.style.display = "none";
-			})
-      .catch((error) => console.log(error))
+    .then((res) => {
+      SetConsult(res.data);
+      videoRef.current.src=`https://grise.p-e.kr/video/${res.data.video.videoId}`;
+      // loadingRef.current.style.display = "none";
+    })
+    .then((res) => {
+      loadingRef.current.style.display = "none";
+    })
+    .catch((error) => console.log(error))
+    */
+    const temp = JSON.parse(window.localStorage.getItem(location.state.consult))[location.state.consultIndex];
+    SetConsult({
+      "consultId": temp.consultId,
+      "title": temp.title,
+      "content": "피드백본문3",
+      "tutee":{
+        "name": temp.tutee.name
+      },
+      "tutor":{
+        "name": "김민영"
+      },
+      "video":{
+        "videoId": 7
+      },
+      "commentList":[]
+    });
+    loadingRef.current.style.display = "none";
+    videoRef.current.src = '/Videos/피드백동영상2.mp4';
 	}, []);
 
 	return (

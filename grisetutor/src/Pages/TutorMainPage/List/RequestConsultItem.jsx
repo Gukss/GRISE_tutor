@@ -1,6 +1,6 @@
 import React,{useRef} from 'react'
 import styled from 'styled-components';
-import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 const RequestConsultItem = (props) => {
@@ -15,16 +15,20 @@ const RequestConsultItem = (props) => {
         state: {
           consult: props.consult,
           consultId: props.data?.consultId,
+          consultIndex: props.index
         },
       });
     };
 
     const RejectConsult = () =>{
+      /*
       if(isReject.current){
         alert('거절한 요청입니다');
         return;
       }
       rejectBtnRef.current.style.backgroundColor="#B1B1B1";
+      
+      
       axios({
         method:'POST',
         url:`https://grise.p-e.kr/tutor/consults/${props.data?.consultId}/cancel`,
@@ -41,6 +45,13 @@ const RequestConsultItem = (props) => {
         rejectBtnRef.current.style.backgroundColor="#3a6c7b";
         console.log(error);
       });
+      */
+
+      //서버가 닫혔기 때문에 로컬로 진행
+      const temp = JSON.parse(window.localStorage.getItem("requestConsult"));
+      temp.splice(props.index,1);
+      window.localStorage.setItem("requestConsult",JSON.stringify([...temp]));
+      containerRef.current.style.display='none';
     }
     return (
       <Container ref={containerRef}>

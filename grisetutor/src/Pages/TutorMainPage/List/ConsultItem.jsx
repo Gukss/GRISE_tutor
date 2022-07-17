@@ -11,6 +11,7 @@ const ConsultingItem = (props) => {
       state: {
         consult: props.consult,
         consultId: props.data?.consultId,
+        consultIndex: props.index
       },
     });
   }

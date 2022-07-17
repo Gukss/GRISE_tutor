@@ -20,6 +20,7 @@ const ConsultList = (props) => {
   const GetConsult = () => {
     pageNumber.current=0;
     if(props.consult === 'NormalConsult'){
+      /*
       axios({
         method:'GET',
         url:`https://grise.p-e.kr/tutor/consults/general`,
@@ -35,8 +36,25 @@ const ConsultList = (props) => {
       .then((res) => {
         SetConsultList(res.data);
       }).catch((error) => console.log(error));
+      */
 
+
+      //서버문제로 로컬로 진행
+      const temp = window.localStorage.getItem("NormalConsult");
+      if(temp === null || temp.length === 0){
+        axios({
+          method:'GET',
+          url:`/Json/mainPageTutor/nomalConsultList.json`
+        }).then((res) =>{
+          const jsonToObject = JSON.parse(JSON.stringify(res.data));
+          window.localStorage.setItem("NormalConsult",JSON.stringify(res.data));
+          SetConsultList(jsonToObject);
+        })
+      }else{
+        SetConsultList(JSON.parse(temp));
+      }
     }else if(props.consult === 'RequestConsult'){
+      /*
       axios({
         method:'GET',
         url:`https://grise.p-e.kr/tutor/consults/post`,
@@ -52,8 +70,24 @@ const ConsultList = (props) => {
       .then((res) => {
         SetConsultList(res.data);
       }).catch((error) => console.log(error));
-      
+      */
+
+      //서버문제로 로컬로 진행
+      const temp = window.localStorage.getItem("RequestConsult");
+      if(temp === null || temp.length === 0){
+        axios({
+          method:'GET',
+          url:`/Json/mainPageTutor/requestConsultList.json`
+        }).then((res) =>{
+          const jsonToObject = JSON.parse(JSON.stringify(res.data));
+          window.localStorage.setItem("RequestConsult",JSON.stringify(res.data));
+          SetConsultList(jsonToObject);
+        })
+      }else{
+        SetConsultList(JSON.parse(temp));
+      }
     }else if(props.consult === 'consulting'){
+      /*
       axios({
         method:'GET',
         url:`https://grise.p-e.kr/tutor/consults/consulting`,
@@ -69,7 +103,22 @@ const ConsultList = (props) => {
       .then((res) => {
         SetConsultList(res.data);
       }).catch((error) => console.log(error));
-      
+      */
+
+      //서버문제로 로컬로 진행
+      const temp = window.localStorage.getItem("consulting");
+      if(temp === null || temp.length === 0){
+        axios({
+          method:'GET',
+          url:`/Json/mainPageTutor/consultingList.json`
+        }).then((res) =>{
+          const jsonToObject = JSON.parse(JSON.stringify(res.data));
+          window.localStorage.setItem("consulting",JSON.stringify(res.data));
+          SetConsultList(jsonToObject);
+        })
+      }else{
+        SetConsultList(JSON.parse(temp));
+      }
     }
   }
 
@@ -164,7 +213,7 @@ const ConsultList = (props) => {
     //높이가 소수점이면 애매하게 딱 안맞을 수 있어서 수정
     if(-1<scrollY&&scrollY<1){
       if(distanceY>DivHeight){//스크롤링위치가 맨마지막에 되어있을때 item하나의 높이보다 더 드래그하면 새로고침
-        Refresh();
+        //Refresh();
       }
     }
   }
@@ -176,13 +225,13 @@ const ConsultList = (props) => {
         {
           consultList.map(function(el,idx){
             if(idx===consultList.length-1){
-              if(props.consult === 'NormalConsult'){return <div key={idx} ref={(e)=>itemRef.current[idx]=e}><ConsultItem key = {idx} isEnd={true} consult = {props.consult} data = {el} /></div>;}
+              if(props.consult === 'NormalConsult'){return <div key={idx} ref={(e)=>itemRef.current[idx]=e}><ConsultItem key = {idx} index = {idx} isEnd={true} consult = {props.consult} data = {el} /></div>;}
               else if(props.consult === 'RequestConsult'){return <div key={idx} ref={(e)=>itemRef.current[idx]=e}><RequestConsultItem key = {idx} isEnd={true} index = {idx} consult = {props.consult} PushReject = {PushReject} data = {el} /></div>;}
-              else if(props.consult === 'consulting'){return <div key={idx} ref={(e)=>itemRef.current[idx]=e}><ConsultItem key = {idx} consult = {props.consult} isEnd={true} data = {el} /></div>;}
+              else if(props.consult === 'consulting'){return <div key={idx} ref={(e)=>itemRef.current[idx]=e}><ConsultItem key = {idx} index = {idx} consult = {props.consult} isEnd={true} data = {el} /></div>;}
             }else{
-              if(props.consult === 'NormalConsult'){return <div key={idx} ref={(e)=>itemRef.current[idx]=e}><ConsultItem key = {idx} isEnd={false} consult = {props.consult} data = {el} /></div>;}
+              if(props.consult === 'NormalConsult'){return <div key={idx} ref={(e)=>itemRef.current[idx]=e}><ConsultItem key = {idx} index = {idx} isEnd={false} consult = {props.consult} data = {el} /></div>;}
               else if(props.consult === 'RequestConsult'){return <div key={idx} ref={(e)=>itemRef.current[idx]=e}><RequestConsultItem key = {idx} isEnd={false} index = {idx} consult = {props.consult} PushReject = {PushReject} data = {el} /></div>;}
-              else if(props.consult === 'consulting'){return <div key={idx} ref={(e)=>itemRef.current[idx]=e}><ConsultItem key = {idx} isEnd={false} consult = {props.consult} data = {el} /></div>;}
+              else if(props.consult === 'consulting'){return <div key={idx} ref={(e)=>itemRef.current[idx]=e}><ConsultItem key = {idx} index = {idx} isEnd={false} consult = {props.consult} data = {el} /></div>;}
             }
           })
         }

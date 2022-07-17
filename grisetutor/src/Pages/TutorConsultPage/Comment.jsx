@@ -18,6 +18,7 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
   }, [consultStart]);
 
   useEffect(() => {
+    /*
     axios({
       method: "GET",
       url: `https://grise.p-e.kr/tutor/consults/${consultId}/comments`,
@@ -33,6 +34,7 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
       .catch((error) => {
         console.log(error);
       });
+    */
     if (consultType === "NormalConsult") {
       inputRef.current.disabled = true;
       inputRef.current.placeholder = `상담 하기 버튼을 눌러주세요.`;
@@ -43,6 +45,7 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
       inputRef.current.disabled = false;
       // inputRef.current.placeholder = `상담 하기 버튼을 눌러주세요.`;
     }
+
   }, []);
 
   useEffect(() => {
@@ -117,6 +120,7 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
     if (content === "") {
       return;
     }
+    /*
     axios
       .post(
         `https://grise.p-e.kr/tutor/consults/${consultId}/comment`,
@@ -151,6 +155,19 @@ const Comment = ({ consultId, tuteeName, consultStart, consultType }) => {
       .catch((error) => {
         console.log("2", error);
       });
+    */
+
+      //로컬진행 코드
+      const temp = [...commentList];
+      temp.push({
+        "userId": window.localStorage.getItem("userId"),
+        "content": content,
+        "userName": localStorage.getItem('userName')
+        }
+      );
+      SetCommentList(temp);
+      SetContent("");
+      inputRef.current.focus();
   };
 
   return (
