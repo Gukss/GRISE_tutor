@@ -1,19 +1,47 @@
 # GRISE_TUTOR_README
 
-# 🖊️Description
+- [GRISE_TUTOR_README](#grise_tutor_readme)
+- [Description](#description)
+	- [name](#name)
+	- [introduce](#introduce)
+	- [directory](#directory)
+- [Information](#information)
+	- [System Architecture](#system-architecture)
+	- [Class Diagram](#class-diagram)
+	- [Sequence Diagram](#sequence-diagram)
+	- [Design](#design)
+	- [E-R Diagram](#e-r-diagram)
+	- [Schema](#schema)
+		- [User](#user)
+		- [Tutee](#tutee)
+		- [Tutor](#tutor)
+		- [Resume](#resume)
+		- [Consult](#consult)
+		- [Comment](#comment)
+		- [Video](#video)
+		- [Review](#review)
+	- [API and JSON](#api-and-json)
+		- [메인 페이지](#메인-페이지)
+		- [상담 페이지](#상담-페이지)
+		- [상담 진행](#상담-진행)
+		- [요청받은 상담 거절](#요청받은-상담-거절)
+		- [이력서](#이력서)
+- [Result](#result)
 
-## 🕶️name
+# Description
+
+## name
 
 GRISE
 
-## 🎉introduce
+## introduce
 
  기존의 오프라인 PT는 많은 횟수를 한 번에 결제하고 중도해지가 힘들기 때문에 여러 명의 트레이너에게 트레이닝을 받아볼 수 없는 문제가 있다. 온라인에서 자신의 운동 영상을 포함한 상담지를 작성해 트레이너에게 질문을 함으로써 단기간에 여러 명의 트레이너에게 트레이닝을 요청하고 답을 받을 수 있고, 자신이 원하는 운동 스타일의 트레이너를 찾을 때 도움을 주기 위해 온라인 피트니스 코칭 서비스 GRISE를 개발하게 되었다.
 
  여러 프론트 라이브러리 중 현재 가장 많이 사용되고 있는 react를 사용해 개발을 진행했고 PWA로 스마트폰에 설치해 사용할 수 있게 개발했다.
 백엔드의 프레임워크로는 많이 사용되는 언어중 하나이며 Java언어의 특성상 배포의 독립성이 높은 Spring Boot를 사용하여 개발하였다.
 
-## 🌱directory
+## directory
 
 ```
 grisetutor
@@ -41,13 +69,13 @@ grisetutor
 
 ---
 
-# ℹ️Information
+# Information
 
-## 🔗System Architecture
+## System Architecture
 
 ![https://user-images.githubusercontent.com/77517470/179341021-c4a8dbc2-f4c5-4698-aebc-4bd891dec18a.png](https://user-images.githubusercontent.com/77517470/179341021-c4a8dbc2-f4c5-4698-aebc-4bd891dec18a.png)
 
-# 🔗Class Diagram
+## Class Diagram
 
 ![https://user-images.githubusercontent.com/76477531/179341531-761bc241-addf-4937-88ab-f8b77f8dfe9d.png](https://user-images.githubusercontent.com/76477531/179341531-761bc241-addf-4937-88ab-f8b77f8dfe9d.png)
 
@@ -61,7 +89,7 @@ grisetutor
 
 ![https://user-images.githubusercontent.com/76477531/179341598-315da284-b23e-4d2d-b77f-588416c79809.png](https://user-images.githubusercontent.com/76477531/179341598-315da284-b23e-4d2d-b77f-588416c79809.png)
 
-## 🔗Seuence Diagram
+## Sequence Diagram
 
 ****<!--**** img SequenceDiagram ****-->****
 
@@ -71,16 +99,17 @@ grisetutor
 
 ![https://user-images.githubusercontent.com/76477531/179341769-2b95b99b-0935-45d4-aa1b-f898e0ee9344.png](https://user-images.githubusercontent.com/76477531/179341769-2b95b99b-0935-45d4-aa1b-f898e0ee9344.png)
 
-![https://user-images.githubusercontent.com/76477531/179341770-7c902ea2-98e0-40bb-8306-6a7a7192ac89.png](https://user-images.githubusercontent.com/76477531/179341770-7c902ea2-98e0-40bb-8306-6a7a7192ac89.ng
+![https://user-images.githubusercontent.com/76477531/179341770-7c902ea2-98e0-40bb-8306-6a7a7192ac89.png](https://user-images.githubusercontent.com/76477531/179341770-7c902ea2-98e0-40bb-8306-6a7a7192ac89.png)
 
-## 🔗Design
+## Design
 
 [https://www.figma.com/file/sgRoBucvp5cIUTGveaQPrc/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80?node-id=0%3A1](https://www.figma.com/file/sgRoBucvp5cIUTGveaQPrc/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80?node-id=0%3A1)
-##🔗[E-R Diagram
 
-![https://user-images.githubusercontent.com/76477531/179341790-bd346456-f62f-4920-98a2-faa8911ef65b.png](https://user-images.githubusercontent.com/76477531/179341790-bd346456-f62f-4920-98a2-faa8911ef65b.ng
+## [E-R Diagram](https://www.notion.so/GRISE_TUTOR_README-2ca1f67003b942e4869c427ced621fb3)
 
-## 🔗Schema
+![https://user-images.githubusercontent.com/76477531/179341790-bd346456-f62f-4920-98a2-faa8911ef65b.png](https://user-images.githubusercontent.com/76477531/179341790-bd346456-f62f-4920-98a2-faa8911ef65b.png)
+
+## Schema
 
 ### User
 
@@ -191,7 +220,7 @@ create table review (
     )
 ```
 
-# API and JSON
+## API and JSON
 
 ### 메인 페이지
 
@@ -412,4 +441,4 @@ JSON
 
 ---
 
-# ❤️Result
+# Result
